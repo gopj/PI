@@ -1,11 +1,3 @@
-<html lang="es">
-<head>
-
-	<title>Inicio</title>
-
-</head>
-<body>
-
 <div id="container">
 
 	<div class="hero-unit">
@@ -34,10 +26,4 @@
 
 		<li><a href="<?=base_url();?>posts/getPost/">Ver Posts</a></li>
 	</ul> -->
-
-		
-	
 </div>
-
-</body>
-</html>

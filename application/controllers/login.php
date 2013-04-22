@@ -4,13 +4,15 @@ class Index extends My_Controller {
 
 	function __construct() {
 		parent::__construct();
-		$this->load->library('pagination');
 		
+		$this->load->helper('url');
+		$this->load->helper('form');
+		$this->load->helper('html');
+
 		$this->setLayout('admin');
 	}
 
 	public function index(){
-
 		$this->load->view('index/index');
 	}
 
