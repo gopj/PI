@@ -13,13 +13,12 @@ class Login extends My_Controller {
 
 			if($this->user->identificar($this->input->post('usuario'), $this->input->post('clave'))){
 				// Preparar informacion para la sesion
-				/*$user = array(
+				$user = array(
 					'idUsuario' => $this->user['idUsuario'],
-					'nombre_usuario' => $this->user['nombre_usuario'],
-					'code' => $this->user['code']
-				);*/
+					'perfil' => $this->user['idTipo_usuario']
+				);
 
-				$this->session->set_userdata('usuario', $user);
+				$this->session->set_userdata('user', $user);
 				redirect("admin/index/");
 			} else {
 				// Mostrar motivo de error
@@ -29,6 +28,7 @@ class Login extends My_Controller {
 
 		$this->load->view('login/index');
 	}
+
 
 	public function logout(){
 		$this->session->sess_destroy();
