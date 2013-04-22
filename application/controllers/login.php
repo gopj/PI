@@ -1,20 +1,40 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Index extends My_Controller {
+class Login extends My_Controller {
 
-	function __construct() {
+	public function __construct(){
 		parent::__construct();
-		
-		$this->load->helper('url');
-		$this->load->helper('form');
-		$this->load->helper('html');
-
-		$this->setLayout('admin');
 	}
-
-	public function index(){
-		$this->load->view('index/index');
-	}
-
 	
+	public function index(){
+
+		if($_SERVER['REQUEST_METHOD'] == "POST"){
+			$this->load->model("User_model", "user");
+
+			if($this->user->identificar($this->input->post('usuario'), $this->input->post('clave'))){
+				// Preparar informacion para la sesion
+				$user = array(
+					'idUsuario' => $this->user['idUsuario'],
+					'nombre_usuario' => $this->user['nombre_usuario'],
+					'code' => $this->user['code']
+				);
+
+				$this->session->set_userdata('user', $user);
+				redirect("admin/index/");
+			} else {
+				// Mostrar motivo de error
+
+			}
+		}
+
+		$this->load->view('login/index');
+	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect("index/");
+	}
 }
+
+/* End of file login.php */
+/* Location: ./application/controllers/login.php */

@@ -22,7 +22,7 @@
 				<span class="icon-bar"></span>
 			</a>
 
-			<a class="brand" href="<?=base_url();?>">Botanitas</a>
+			<a class="brand" href="<?=base_url()?>">Botanitas</a>
 			<div class="nav-collapse collapse navbar-inverse-collapse">
 
 				<ul class="nav">
@@ -31,25 +31,8 @@
 				</ul>
 
 				<ul class="nav pull-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Admin <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li class="nav-header">Administraci&oacute;n de usuarios</li>
-							<li><a href="<?=base_url();?>admin/usuarios"> Usuarios </a></li>
-							<li class="divider"></li>
-							<li class="nav-header">Agregar</li>
-							<li><a href="<?=base_url();?>admin/producto"> Productos </a></li>
-							<li><a href="#">Rutas</a></li>
-						</ul>
-					</li>
 					<li class="divider-vertical"></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Iniciar Sesion <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li class="nav-header">Login</li>
-							
-						</ul>
-					</li>
+					<li><a href="<?=base_url()?>login">Iniciar Sesion</a></li>
 				</ul>
 			</div><!-- /.nav-collapse -->
 		</div>
