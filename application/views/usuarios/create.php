@@ -15,7 +15,7 @@
 
 		<label class="control-label" for="perfil">Tipo de usuario:</label>
 		<div class="controls">
-			<?=form_dropdown('idTipo_usuario', $perfiles);?>
+			<?=form_dropdown('idTipo_usuario', $perfiles, @$perfil['nombre']);?>
 		</div>
 		<br /> <br />
 
