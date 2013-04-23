@@ -10,7 +10,7 @@ class Perfil_model extends My_Model{
 
 	public function getAllToSelect(){
 		$perfilesResult = $this->getAll();
-		$perfiles = array();
+		$perfiles = array(0 => "Nada");
 		foreach ($perfilesResult as $key => $perfil) {
 			$perfiles[$perfil->idTipo_usuario] = $perfil->perfil;
 		}
