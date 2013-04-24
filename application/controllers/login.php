@@ -14,9 +14,9 @@ class Login extends My_Controller {
 			if($this->user->identificar($this->input->post('usuario'), $this->input->post('clave'))){
 				// Preparar informacion para la sesion
 				$usuario = array(
-					'idUsuario' => $this->user['idUsuario'],
-					'nombre_usuario' => $this->$user['nombre_usuario'],
-					'perfil' => $this->$user['idTipo_usuario']
+					'idUsuario' => $user['idUsuario'],
+					'nombre_usuario' => $user['nombre_usuario'],
+					'perfil' => $user['idTipo_usuario']
 				);
 
 				$this->session->set_userdata('user', $usuario);

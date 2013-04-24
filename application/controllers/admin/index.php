@@ -10,7 +10,7 @@ class Index extends My_Controller {
 
 	public function index(){
 
-		print_r($_SESSION);
+		//print_r($_SESSION);
 
 		$this->load->view('index/index');
 		
