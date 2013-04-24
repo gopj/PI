@@ -15,7 +15,6 @@ class Login extends My_Controller {
 				// Preparar informacion para la sesion
 				$usuario = array(
 					'idUsuario' => $user['idUsuario'],
-					'nombre_usuario' => $user['nombre_usuario'],
 					'perfil' => $user['idTipo_usuario']
 				);
 

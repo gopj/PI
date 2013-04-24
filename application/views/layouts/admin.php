@@ -1,3 +1,4 @@
+<?php // $user = $this->session->userdata('user'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
@@ -21,7 +22,7 @@
 				<span class="icon-bar"></span>
 			</a>
 
-			<a class="brand" href="<?=admin();?>base_url">Botanitas</a>
+			<a class="brand" href="<?=base_url();?>">Botanitas</a>
 			<div class="nav-collapse collapse navbar-inverse-collapse">
 
 				<ul class="nav">
@@ -43,7 +44,7 @@
 					</li>
 					<li class="divider-vertical"></li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Iniciar Sesion <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li class="nav-header">Login</li>
 							

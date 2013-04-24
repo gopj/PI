@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Index extends My_Controller {
+class Index extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();
@@ -9,8 +9,6 @@ class Index extends My_Controller {
 	}
 
 	public function index(){
-
-		//print_r($_SESSION);
 
 		$this->load->view('index/index');
 		
