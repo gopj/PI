@@ -3,7 +3,7 @@
 class Productos extends My_Controller {
 
 	function __construct() {
-		parent::__construct();
+		parent::__construct(true);
 		
 		$this->load->model("producto_model", "producto");
 
@@ -12,7 +12,8 @@ class Productos extends My_Controller {
 
 	public function index($pag = null){
 		
-		$data['productos'] = $this->producto->getAll();	
+		$data['productos'] = $this->producto->getAll();
+		$data['victor'] = "Hola";
 
 		$this->load->view('productos/index', $data);
 	}

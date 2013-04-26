@@ -46,7 +46,7 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Iniciar Sesion <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li class="nav-header">Login</li>
+							<li><a href="<?=base_url();?>login/logout"> Logout </a></li>
 							
 						</ul>
 					</li>

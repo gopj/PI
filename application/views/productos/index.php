@@ -1,4 +1,4 @@
-<h2>Productos</h2>
+<h2>Productos</h2> <?= $victor ?>
 <p>
 	<?=anchor( "admin/productos/create/" ,"Agregar" ,"class='btn btn-primary'" )?>
 </p>
