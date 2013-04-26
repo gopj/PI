@@ -9,4 +9,4 @@
 
 	<?php echo form_submit("login", "Entrar", 'class="btn btn-large btn-primary"'); ?>
 
-<?php echo form_close(); ?>
+<?php echo form_close(); ?>	
