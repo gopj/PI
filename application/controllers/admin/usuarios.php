@@ -14,9 +14,9 @@ class Usuarios extends My_Controller {
 
 	public function index($pag = null){
 		
-		$data['productos'] = $this->user->getAll();	
+		$data['users'] = $this->user->getAll();	
 
-		$this->load->view('prodcutos/index', $data);
+		$this->load->view('usuarios/index', $data);
 	}
 
 	public function create($id = null){
