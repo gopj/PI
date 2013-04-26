@@ -7,15 +7,16 @@ class Usuarios extends My_Controller {
 
 		$this->load->model("user_model","user");
 		$this->load->model("perfil_model","perfil");
+		$this->load->model("producto_model", "producto");
 
 		$this->setLayout('admin');
 	}
 
 	public function index($pag = null){
 		
-		$data['users'] = $this->user->getAll();	
+		$data['productos'] = $this->user->getAll();	
 
-		$this->load->view('usuarios/index', $data);
+		$this->load->view('prodcutos/index', $data);
 	}
 
 	public function create($id = null){

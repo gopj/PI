@@ -221,19 +221,19 @@ CREATE TABLE IF NOT EXISTS `ventas` (
 -- Filtros para la tabla `detalle_salidas_entradas`
 --
 ALTER TABLE `detalle_salidas_entradas`
-  ADD CONSTRAINT `idProducto` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProductos`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `idProducto` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `lote`
 --
 ALTER TABLE `lote`
-  ADD CONSTRAINT `lote_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProductos`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `lote_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProducto`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `merma`
 --
 ALTER TABLE `merma`
-  ADD CONSTRAINT `merma_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProductos`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `merma_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `rol`

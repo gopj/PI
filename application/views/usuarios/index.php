@@ -1,4 +1,4 @@
-<h2>Autores</h2>
+<h2>Usuarios</h2>
 <p>
 	<?=anchor( "admin/usuarios/create/" ,"Agregar" ,"class='btn btn-primary'" )?>
 </p>

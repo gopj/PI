@@ -38,7 +38,7 @@
 							<li><a href="<?=base_url();?>admin/usuarios"> Usuarios </a></li>
 							<li class="divider"></li>
 							<li class="nav-header">Agregar</li>
-							<li><a href="<?=base_url();?>admin/producto"> Productos </a></li>
+							<li><a href="<?=base_url();?>admin/productos"> Productos </a></li>
 							<li><a href="#">Rutas</a></li>
 						</ul>
 					</li>
