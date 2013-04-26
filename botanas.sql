@@ -85,13 +85,13 @@ CREATE TABLE IF NOT EXISTS `merma` (
 --
 
 CREATE TABLE IF NOT EXISTS `productos` (
-  `idProductos` int(11) NOT NULL AUTO_INCREMENT,
+  `idProducto` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_producto` varchar(50) NOT NULL,
   `presentacion` varchar(20) NOT NULL,
   `precio_fabrica` double NOT NULL,
   `precio_publico` double NOT NULL,
   `status` varchar(10) NOT NULL,
-  PRIMARY KEY (`idProductos`)
+  PRIMARY KEY (`idProducto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
