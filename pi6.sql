@@ -29,7 +29,7 @@ CREATE TABLE `clientes` (
   `nombre` varchar(100) NOT NULL,
   `direccion` varchar(100) NOT NULL,
   PRIMARY KEY (`idCliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
+INSERT INTO `clientes` VALUES (1,'borre','Av. Siempre viva #123');
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +56,7 @@ CREATE TABLE `detalle_salidas_entradas` (
   `cantidadRegreso` int(11) NOT NULL,
   PRIMARY KEY (`idDetalle_salidas_entradas`),
   KEY `idProducto_idx` (`idProducto`),
-  CONSTRAINT `idProducto` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProductos`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `idProducto` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,7 +84,7 @@ CREATE TABLE `lotes` (
   `cantidad_prod_existencia` int(11) NOT NULL,
   PRIMARY KEY (`idLote`),
   KEY `idProducto` (`idProducto`),
-  CONSTRAINT `lotes_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProductos`) ON UPDATE CASCADE
+  CONSTRAINT `lotes_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProducto`) ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -109,7 +110,7 @@ CREATE TABLE `mermas` (
   `cantidad` int(11) NOT NULL,
   PRIMARY KEY (`idMerma`),
   KEY `idProducto` (`idProducto`),
-  CONSTRAINT `mermas_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProductos`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `mermas_ibfk_1` FOREIGN KEY (`idProducto`) REFERENCES `productos` (`idProducto`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -130,14 +131,14 @@ DROP TABLE IF EXISTS `productos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `productos` (
-  `idProductos` int(11) NOT NULL AUTO_INCREMENT,
+  `idProducto` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_producto` varchar(50) NOT NULL,
   `presentacion` varchar(20) NOT NULL,
   `precio_fabrica` double NOT NULL,
   `precio_publico` double NOT NULL,
   `status` varchar(10) NOT NULL,
-  PRIMARY KEY (`idProductos`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`idProducto`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,6 +147,7 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+INSERT INTO `productos` VALUES (1,'Papitas','150',3,5,'1'),(2,'Chetos','135',4,6,'1'),(3,'Cacahuates','40',8,10,'1'),(4,'Pistaches','55',12,15,'1'),(5,'Churrumaiz','35',2,4,'1');
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,13 +180,13 @@ LOCK TABLES `rol_clientes` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `rol_vendedors`
+-- Table structure for table `rol_vendedores`
 --
 
-DROP TABLE IF EXISTS `rol_vendedors`;
+DROP TABLE IF EXISTS `rol_vendedores`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `rol_vendedors` (
+CREATE TABLE `rol_vendedores` (
   `idRol_vendedor` int(11) NOT NULL AUTO_INCREMENT,
   `idUsuario` int(11) NOT NULL,
   `idRol` int(11) NOT NULL,
@@ -193,18 +195,18 @@ CREATE TABLE `rol_vendedors` (
   KEY `idRol_idx` (`idRol`),
   KEY `idUsuario` (`idUsuario`),
   KEY `idRol` (`idRol`),
-  CONSTRAINT `rol_vendedors_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `rol_vendedores_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `idRol` FOREIGN KEY (`idRol`) REFERENCES `roles` (`idRol`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `rol_vendedors`
+-- Dumping data for table `rol_vendedores`
 --
 
-LOCK TABLES `rol_vendedors` WRITE;
-/*!40000 ALTER TABLE `rol_vendedors` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rol_vendedors` ENABLE KEYS */;
+LOCK TABLES `rol_vendedores` WRITE;
+/*!40000 ALTER TABLE `rol_vendedores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rol_vendedores` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -333,7 +335,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,1,'Chuy','c7432b40153b80353dd6f7524416472c');
+INSERT INTO `usuarios` VALUES (1,1,'chuy','c7432b40153b80353dd6f7524416472c');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -376,4 +378,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-04-22  2:15:27
+-- Dump completed on 2013-04-26  4:27:17

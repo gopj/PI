@@ -10,6 +10,7 @@
 			<th>Presentaci&oacute;n</th>
 			<th>Precio Fabrica</th>
 			<th>Precio Venta</th>
+			<th>Estado del producto</th>
 			<th colspan="2">Opciones</th>
 		</tr>
 	</thead>
