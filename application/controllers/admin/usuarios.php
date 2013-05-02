@@ -26,7 +26,7 @@ class Usuarios extends My_Controller {
 			$user = new User_model();
 
 			$user['nombre_usuario'] = $this->input->post("nombre_usuario");
-			$user['clave'] = $this->input->post(MD5("clave"));
+			$user['clave'] = MD5($this->input->post("clave"));
 			$user['idTipo_usuario'] = $this->input->post("idTipo_usuario");
 
 			if ( $user->save() ){
