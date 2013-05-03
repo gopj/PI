@@ -16,4 +16,13 @@ class Cliente_model extends My_Model{
 		}
 		return $perfiles;*/
 	}
+
+	public function getByIdToSelect($id){
+		$clientesResult = $this->getAllBy("idMunicipio", $id);
+		$clientes = array();
+		foreach ($clientesResult as $key => $cliente) {
+			$clientes[$cliente->idCliente] = $cliente->nombre;
+		}
+		return $clientes;
+	}
 }
