@@ -28,8 +28,9 @@ CREATE TABLE `clientes` (
   `idCliente` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   `direccion` varchar(100) NOT NULL,
+  `idMunicipio` int(11) NOT NULL,
   PRIMARY KEY (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +39,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (1,'borre','Av. Siempre viva #123');
+INSERT INTO `clientes` VALUES (1,'borre','Av. Siempre viva #123',1),(2,'chuy','asdasd',3),(3,'viks','asdad',2),(4,'angel','asdas',4),(5,'santa','adasd',4),(6,'figo','asdasd',1),(7,'roberto','asda',2),(8,'jesus','dasdad',3),(9,'juan','asdds',7),(10,'jose','asdasd',7),(11,'chano','asdad',8);
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -165,8 +166,8 @@ CREATE TABLE `rol_clientes` (
   PRIMARY KEY (`idRol_cliente`),
   KEY `idRol` (`idRol`),
   KEY `idCliente` (`idCliente`),
-  CONSTRAINT `rol_clientes_ibfk_2` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `rol_clientes_ibfk_1` FOREIGN KEY (`idRol`) REFERENCES `roles` (`idRol`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `rol_clientes_ibfk_1` FOREIGN KEY (`idRol`) REFERENCES `roles` (`idRol`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `rol_clientes_ibfk_2` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -195,8 +196,8 @@ CREATE TABLE `rol_vendedores` (
   KEY `idRol_idx` (`idRol`),
   KEY `idUsuario` (`idUsuario`),
   KEY `idRol` (`idRol`),
-  CONSTRAINT `rol_vendedores_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `idRol` FOREIGN KEY (`idRol`) REFERENCES `roles` (`idRol`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `idRol` FOREIGN KEY (`idRol`) REFERENCES `roles` (`idRol`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `rol_vendedores_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -355,8 +356,8 @@ CREATE TABLE `ventas` (
   PRIMARY KEY (`idVenta`),
   KEY `idUsuario` (`idUsuario`),
   KEY `idCliente` (`idCliente`),
-  CONSTRAINT `ventas_ibfk_2` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `ventas_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `ventas_ibfk_2` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -368,6 +369,31 @@ LOCK TABLES `ventas` WRITE;
 /*!40000 ALTER TABLE `ventas` DISABLE KEYS */;
 /*!40000 ALTER TABLE `ventas` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `vta_detalles`
+--
+
+DROP TABLE IF EXISTS `vta_detalles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `vta_detalles` (
+  `idVtaDetalle` int(11) NOT NULL AUTO_INCREMENT,
+  `idVenta` int(11) NOT NULL,
+  `idProducto` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  PRIMARY KEY (`idVtaDetalle`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vta_detalles`
+--
+
+LOCK TABLES `vta_detalles` WRITE;
+/*!40000 ALTER TABLE `vta_detalles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `vta_detalles` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -378,4 +404,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-04-26  4:27:17
+-- Dump completed on 2013-05-15 13:20:50

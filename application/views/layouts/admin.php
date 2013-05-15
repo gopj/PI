@@ -44,7 +44,7 @@
 					</li>
 					<li class="divider-vertical"></li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Iniciar Sesion <b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Cerrar Sesi&oacute;n <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="<?=base_url();?>login/logout"> Logout </a></li>
 							
