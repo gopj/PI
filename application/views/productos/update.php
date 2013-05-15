@@ -5,22 +5,22 @@
 
 		<label class="control-label" for="nombre">Nombre Producto:</label>
 		<div class="controls">
-			<?=form_input('nombre_producto', '', ' id="Nombre_producto" placeholder="Nombre del producto"')?> <br />
+			<?=form_input('nombre_producto', $producto['nombre_producto'], ' id="Nombre_producto" placeholder="Nombre del producto"')?> <br />
 		</div>
 
 		<label class="control-label" for="clave">Presentación:</label>
 		<div class="controls">
-			<?=form_input('presentacion', '', ' id="Presentacion" placeholder="Gramos"')?> <br />
+			<?=form_input('presentacion', $producto['presentacion'], ' id="Presentacion" placeholder="Gramos"')?> <br />
 		</div>
 
 		<label class="control-label" for="clave">Precio Fabrica:</label>
 		<div class="controls">
-			<?=form_input('precio_fabrica', '', ' id="Precio_fabrica" placeholder="Precio de Fabrica"')?> <br />
+			<?=form_input('precio_fabrica', $producto['precio_fabrica'], ' id="Precio_fabrica" placeholder="Precio de Fabrica"')?> <br />
 		</div>
 
 		<label class="control-label" for="clave">Precio Publico:</label>
 		<div class="controls">
-			<?=form_input('precio_publico', '', ' id="Precio_publico" placeholder="Precio de Publico"')?> <br />
+			<?=form_input('precio_publico', $producto['precio_publico'], ' id="Precio_publico" placeholder="Precio de Publico"')?> <br />
 		</div>
 
 		

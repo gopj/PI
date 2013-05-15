@@ -11,4 +11,8 @@ class Producto_model extends My_Model{
 	public function getAllToSelect(){
 		
 	}
+
+	public function createProduct(){
+		
+	}
 }

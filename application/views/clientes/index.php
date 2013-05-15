@@ -21,8 +21,8 @@
 					<td>".$cliente->direccion."</td>
 					
 					<td>
-						" . anchor( "admin/productos/update/".$cliente->idCliente , "Editar" , "class='btn btn-primary'" ) . "
-						" . anchor( "admin/productos/delete/".$cliente->idCliente , "Eliminar" , "class='btn btn-danger'" ) . "
+						" . anchor( "admin/clientes/update/".$cliente->idCliente , "Editar" , "class='btn btn-primary'" ) . "
+						" . anchor( "admin/clientes/delete/".$cliente->idCliente , "Eliminar" , "class='btn btn-danger'" ) . "
 					</td>
 				</tr>
 			";
