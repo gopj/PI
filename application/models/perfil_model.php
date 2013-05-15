@@ -14,6 +14,7 @@ class Perfil_model extends My_Model{
 		foreach ($perfilesResult as $key => $perfil) {
 			$perfiles[$perfil->idTipo_usuario] = $perfil->nombre;
 		}
+		
 		return $perfiles;
 	}
 }
