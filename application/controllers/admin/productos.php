@@ -13,7 +13,6 @@ class Productos extends My_Controller {
 	public function index($pag = null){
 		
 		$data['productos'] = $this->producto->getAll();
-		$data['victor'] = "Hola";
 
 		$this->load->view('productos/index', $data);
 	}

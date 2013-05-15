@@ -6,10 +6,6 @@
     </div>
 	
 
-	Municipio: <?=form_dropdown('idMunicipio', $municipios, @$municipio['nombre'])?> 
-	<br />
-	Cliente: <?=form_dropdown('idCliente', $clientes, @$cliente['nombre'])?>	
-
 <!--
 	<div class="btn-group">
 	  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
