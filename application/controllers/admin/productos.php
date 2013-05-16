@@ -17,17 +17,11 @@ class Productos extends My_Controller {
 		$this->load->view('productos/index', $data);
 	}
 
-	public function delete($id = null){
-		$this->producto['idProducto'] = $id;
-		if ( $this->producto->delete() ){
-
-		}
-		redirect("admin/productos");
-	}	
-
 	public function create(){
 		if ( $this->input->post() ){
-			$product = new producto_model();
+
+			$product = new Producto_model();
+
 			$product['nombre_producto'] = $this->input->post("nombre_producto");
 			$product['presentacion'] = ($this->input->post("presentacion"));
 			$product['precio_fabrica'] = $this->input->post("precio_fabrica");
@@ -41,7 +35,8 @@ class Productos extends My_Controller {
 		$this->load->view("productos/create");
 	}	
 
-	public function update($id=true){
+	public function update($id = null){
+		$data = array();
 
 		$data['producto'] = $this->producto->getByIdAsArray($id);
 
@@ -49,21 +44,34 @@ class Productos extends My_Controller {
 			redirect("admin/productos");
 		}
 
+
+
 		if ( $this->input->post() ){
-			$product = new producto_model();
+			$product = new Producto_model();
 
 			$product['idProducto'] = $id;
 			$product['nombre_producto'] = $this->input->post("nombre_producto");
 			$product['presentacion'] = $this->input->post("presentacion");
 			$product['precio_fabrica'] = $this->input->post("precio_fabrica");
 			$product['precio_publico'] = $this->input->post("precio_publico");
-			$product['status'] = 1;
+			$product['status'] = $this->input->post("status");
 
 			if ( $product->save() ){
 				redirect('admin/productos');
 			}
 		}
+
 		$this->load->view("productos/update",$data);
+	}
+
+	public function delete($id = null){
+		$this->producto['idProducto'] = $id;
+		if ( $this->producto->delete() ){
+
+		}
+		redirect("admin/productos");
 	}	
+
+	
 	
 }

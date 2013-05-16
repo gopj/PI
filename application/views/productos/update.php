@@ -1,7 +1,7 @@
 <div class="span8 offset4">
-	<h2>Crear Usuarios</h2>
+	<h2>Modificar Producto</h2>
 
-	<?php echo form_open('admin/productos/create', 'class="form-horizontal"'); ?>
+	<?php echo form_open('admin/productos/update/'.$producto['idProducto'], 'class="form-horizontal"'); ?>
 
 		<label class="control-label" for="nombre">Nombre Producto:</label>
 		<div class="controls">
@@ -21,6 +21,11 @@
 		<label class="control-label" for="clave">Precio Publico:</label>
 		<div class="controls">
 			<?=form_input('precio_publico', $producto['precio_publico'], ' id="Precio_publico" placeholder="Precio de Publico"')?> <br />
+		</div>
+
+		<label class="control-label" for="es">Estado</label>
+		<div class="controls">
+			<?=form_input('status', $producto['status'], ' id="es" placeholder=""')?> <br />
 		</div>
 
 		

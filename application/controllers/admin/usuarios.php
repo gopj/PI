@@ -44,8 +44,35 @@ class Usuarios extends My_Controller {
 		$this->load->view("usuarios/create", $data);
 	}
 
-	public function update(){
-		
+	public function update($id = null){
+		$data['user'] = $this->user->getByIdAsArray($id);
+		if (is_null($id)){
+			redirect("admin/productos");
+		}
+
+
+		if ( $this->input->post() ){
+
+			$user = new User_model();
+
+			$user['idUsuario'] = $id;
+			$user['idTipo_usuario'] = $this->input->post("idTipo_usuario");
+			$user['nombre_usuario'] = $this->input->post("nombre_usuario");
+			$user['clave'] = MD5($this->input->post("clave"));
+
+			if ( $user->save() ){
+
+				redirect('admin/usuarios');
+
+			}
+		}
+
+		$perfil = new Perfil_model();
+
+		$data['perfil'] = $this->perfil->getByIdAsArray($id);
+		$data['perfiles'] = $this->perfil->getAllToSelect();
+
+		$this->load->view("usuarios/update", $data);
 	}
 
 	public function delete($id = null){
