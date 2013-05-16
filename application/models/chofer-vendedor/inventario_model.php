@@ -19,5 +19,17 @@ class Inventario_model extends CI_Model {
 		}
 	}
 
+	public function getProducto($id){
+		//comparamos si los id son iguales 
+		$this->db->where('idProducto',$id);
+		$query=$this->db->get('productos');
+		if($query -> num_rows() > 0) {
+			return $query;
+		}
+		else{
+			return false;	
+		}
+	}
+
 }
 ?>

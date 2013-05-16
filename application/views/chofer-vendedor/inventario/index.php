@@ -16,7 +16,7 @@
 		//vemos si ventas contiene algo
 		if($productos):
 			foreach ($productos->result() as $producto): 
-				if($producto->status == "disponible"): 
+				if($producto->status == "1"): 
 					echo "<tr class='success'>";
 				else:
 					echo "<tr class='error'>"; 

@@ -4,6 +4,8 @@ class Index extends CI_Controller {
 
 	public function __construnct(){
 		parent::__construct();
+		$this->setLayout('blank');
+		$this->setLayout('admin');
 
 	} 
 	
