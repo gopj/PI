@@ -4,7 +4,6 @@
 		<h1>PI - Botanas</h1>
 		<p>Index</p>		
     </div>
-	
 
 <!--
 	<div class="btn-group">

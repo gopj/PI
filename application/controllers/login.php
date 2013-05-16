@@ -13,13 +13,25 @@ class Login extends My_Controller {
 
 			if($this->user->identificar($this->input->post('usuario'), $this->input->post('clave'))){
 				// Preparar informacion para la sesion
-				$usuario = array(
-					'idUsuario' => $user['idUsuario'],
-					'perfil' => $user['idTipo_usuario']
+				$user = array(
+					'idUsuario' => $this->user['idUsuario'],
+					'nombre' => $this->user['nombre_usuario'],
+					'perfil' => $this->user['idTipo_usuario']
 				);
 
-				$this->session->set_userdata('user', $usuario);
-				redirect("admin/index/");
+				$this->session->set_userdata('user', $user);
+				
+				switch ($this->session->userdata['user']['perfil']){
+					case '1':
+						redirect("admin/index/");
+						break;
+					
+					case '2':
+						redirect("chofer-vendedor/index/");
+						break;
+				}
+	
+
 			} else {
 				// Mostrar motivo de error
 

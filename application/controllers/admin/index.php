@@ -10,6 +10,11 @@ class Index extends MY_Controller {
 
 	public function index(){
 
+		echo "<pre>";
+		print_r( $this->session->userdata);
+		print($this->session->userdata['user']['perfil']);
+		echo "</pre>";
+
 		$this->load->view('index/index');
 		
 	}
