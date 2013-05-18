@@ -3,7 +3,7 @@
 class Clientes extends My_Controller {
 
 	function __construct() {
-		parent::__construct();
+		parent::__construct(true);
 		
 		$this->load->model("cliente_model", "cliente");
 		$this->load->model("municipio_model","municipio");
