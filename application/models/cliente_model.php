@@ -17,6 +17,19 @@ class Cliente_model extends My_Model{
 		return $perfiles;*/
 	}
 
+	public function getClientes(){
+		//un query que obtiene los cursos
+		$query = $this->db->get('clientes');
+		//si hay cursos, regresamos los resultados
+		if($query -> num_rows() > 0) {
+			return $query;
+		}
+		//si no hay regresamos un false
+		else{
+			return false;	
+		}
+	}
+
 	public function getByIdToSelect($id){
 		$clientesResult = $this->getAllBy("idMunicipio", $id);
 		$clientes = array();

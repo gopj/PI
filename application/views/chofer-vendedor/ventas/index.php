@@ -34,15 +34,24 @@
 ?>
 	</tbody>
 </table>
-<?php 
-		//vemos si cursos contiene algo
-		if($productos){
-			foreach ($productos->result() as $producto){ ?>
-				<ul>
-					<li><a href="<?= $producto->idProducto; ?>"> <?= $producto->idProducto; ?> </a></li>
-				</ul>
-			<?php }
-		}else{
-			echo "<p>Error en la aplicacion</p>";
-		}
-?>
+
+<p><?php for ($i = 0; $i < count($productos); $i++){ 
+	echo $productos[$i];
+	echo "<h1>hola</h1>";
+} ?>
+</p>
+<hr>
+<p><?php for ($i = 0; $i < count($cantidad); $i++){ 
+	echo $cantidad[$i];
+	echo "<h1>hola</h1>";
+} 
+?></p>
+<!--<p><?php //echo $cantidad ?></p>
+<p><?php //for ($i = 0; $i < count($cantidad); $i++){ echo $cantidad[$i];} ?></p>
+<hr>
+<p><?= $usuario ?></p>
+<p><?= $cliente ?></p>
+<p><?= $fecha ?></p>
+<p><?= $total ?></p>
+
+<!--<p><?= $id ?></p>-->

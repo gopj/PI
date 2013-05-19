@@ -8,7 +8,7 @@ class Ventas extends My_Controller {
 	}
 
 	//el index de ventas del usuario chofer vendedor
-	public function index($pag = null) {
+	public function index($data = null) {
 		$this->setLayout('chofer_vendedor');
 
 		$this -> load -> model('chofer-vendedor/ventas_model', 'ventas');
@@ -18,7 +18,7 @@ class Ventas extends My_Controller {
 
 		//construimos nuestro sidebar
 		$data['sidebar'] = $this -> menu -> construirSidebar(
-			array('Crear venta', 'Cancelar venta', 'Modificar venta'), '');
+			array('Crear venta', 'Ver detalles venta'), '');
 
 		//obtenemos las ventas y las mostramos */
 		$data['ventas'] = $this -> ventas -> getVentas();
@@ -49,10 +49,14 @@ class Ventas extends My_Controller {
 
 		$this -> load -> model('chofer-vendedor/inventario_model', 'inventario');
 
+		$this -> load -> model('cliente_model', 'cliente');
+
 		$this -> load -> library('menu');
 
 		$data['sidebar'] = $this -> menu -> construirSidebar(
-			array('Crear venta', 'Cancelar venta', 'Modificar venta'), 'Crear venta');
+			array('Crear venta', 'Ver detalles venta'), 'Crear venta');
+
+		$data['clientes'] = $this -> cliente -> getClientes();
 
 		$data['productos'] = $this -> inventario -> getProductos();
 
@@ -62,16 +66,27 @@ class Ventas extends My_Controller {
 	}
 
 	function recibirdatosVenta(){
-		if (isset($_POST['productos'])) {
+
+		if (isset($_POST['productos']) && isset($_POST['cliente']) && isset($_POST['cantidadComprar'])) {
+			
+			$this->load->model('chofer-vendedor/ventas_model', 'ventas');
+
+			//idVenta, idProducto, cantidad
 			$data['productos'] = $_POST["productos"];
+			$productos = $_POST["productos"];
+			$data['cantidad'] = $_POST["cantidadComprar"]; 
+			$cantidad = $_POST["cantidadComprar"]; 
+			
+			//idUsuaurio, idCliente, fecha, total	
+			$data['usuario'] = $this->session->userdata['user']['idUsuario'];
+			$data['cliente'] = $_POST["cliente"];
+			$data['fecha'] = date( 'Y-m-d');
+			$data['total'] = $this->ventas->obtenerTotalProductos($productos,$cantidad);
 
-			$cantidad = 2; 
+			$this->ventas->agregarVenta($data);
 
-			$this->load->model('ventas_model','ventas');
-
-			$this->ventas->agregarVenta($data, $cantidad);
-
-			$this->index();
+			$this->index($data);
+			//redirect('chofer-vendedor/ventas', $data);
 
 		}else{
 			//no se han seleccionado productos 
@@ -79,13 +94,9 @@ class Ventas extends My_Controller {
 
 	}
 
-	public function modificarVenta() {
-	
-	}
+	public function verDetallesVenta(){
 
-	public function cancelarVenta() {
 		
 	}
-
 }
 ?>

@@ -44,11 +44,21 @@
 						<a class="brand" href="#">Botanitas</a>
 						<!--<?= $menu_principal; ?>-->
 						<div class='nav-collapse collapse'> 
+							<ul class="nav pull-right">
+              					<li>
+              						<a href="<?=base_url();?>login/logout" id="cerrar" role="button" >Cerrar sesión</a>
+              					</li>
+							</ul>
+							<p class="navbar-text pull-right">
+              					Bienvenido
+              					<?=$this->session->userdata['user']['nombre'];?>
+            				</p>
 							<ul class='nav'>
 								<li class="active"> <a href='<?=base_url();?>/chofer-vendedor/index'>Inicio</a></li>
 								<li> <a href='<?=base_url();?>/chofer-vendedor/acercaDe'>Acerca de</a></li>
 								<li> <a href='<?=base_url();?>/chofer-vendedor/contacto'>Contacto</a></li>
 							</ul>
+							
 						</div>
 					</div>
 				</div>
@@ -56,7 +66,8 @@
 			<!--Fin de nav var-->
 		</header>
 		<!--Fin de header-->
-				<!--Sub nav var-->
+		
+		<!--Sub nav var-->
 		<div class="navbar">
             <!--<?= $menu_secundario; ?>-->
             <div class='navbar-inner'>
@@ -128,6 +139,9 @@
 		<script src="<?= base_url()?>/js/bootstrap-affix.js"></script>
 		<script src="<?= base_url()?>/js/holder/holder.js"></script>
 		<script src="<?= base_url()?>/js/application.js"></script>
+
+		<script src="<?=base_url('js/bootstrap.js')?>"> </script>
+		<script src="<?=base_url('js/jquery-1.9.0.js')?>"> </script>
 	</body>
 
 </html>

@@ -19,7 +19,7 @@ class Ventas_model extends My_Model {
 		}
 	}
 
-	public function agregarVenta($productos, $cantidad){
+	public function agregarVenta($data){
 		//agregar la venta realizada en la tabla de venta
 		$this->db->insert('ventas',
 			array('idUsuario' => $data['usuario'],
@@ -29,14 +29,29 @@ class Ventas_model extends My_Model {
 			 	  )
 		);
 
-		for ($i = 0; $i < count($productos); $i++) {
-			$this->db->insert('vta_detalles',
-				array('idVenta' => $data['venta'],
-				 	  'idProducto' => $data['producto'],
-				 	  'cantidad' => $data['cantidad'],
-				 	  )
-			);
+		$id = $this->db->insert_id();
+
+		for ($i = 0; $i < count($data['productos']); $i++){
+			 $this->db->set('idVenta', $id);
+			 $this->db->set('idProducto', $data['productos'][$i]);
+			 $this->db->set('cantidad', $data['cantidad'][$i]);
+			 $this->db->insert('vta_detalles');
 		} 
+	}
+
+	public function obtenerTotalProductos($productos,$cantidad){
+		$total = 0;
+		for ($i = 0; $i < count($productos); $i++) {
+			$this->db->where('idProducto',$productos[$i]);
+			$precio = $this->db->get('productos');
+			if($precio -> num_rows() > 0) {
+				foreach ($precio->result() as $producto){
+					$mul = $producto->precio_publico * $cantidad[$i]; 
+				}
+				$total = $total + $mul;
+			}
+		} 
+		return $total;
 	}
 
 }

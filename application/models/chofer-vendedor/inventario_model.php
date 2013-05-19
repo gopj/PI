@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-class Inventario_model extends CI_Model {
+class Inventario_model extends My_Model {
 	public function __construct() {
 		parent::__construct();
 		$this -> load -> database();
