@@ -1,4 +1,4 @@
-<div class="span12">
+
 	<h2>Inventario</h2>
 	<table class="table table-hover">
 		<thead>
@@ -14,8 +14,8 @@
 		<tbody>
 	<?php 
 		//vemos si ventas contiene algo
-		if($productos):
-			foreach ($productos->result() as $producto): 
+		if($productosChofer):
+			foreach ($productosChofer->result() as $producto): 
 				if($producto->status == "1"): 
 					echo "<tr class='success'>";
 				else:
@@ -41,4 +41,4 @@
 	?>
 		</tbody>
 	</table>
-</div>
+

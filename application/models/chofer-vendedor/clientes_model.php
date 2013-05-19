@@ -1,30 +1,28 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-class Inventario_model extends My_Model {
+
+class Clientes_model extends My_Model {
 	public function __construct() {
 		parent::__construct();
 		$this -> load -> database();
 	}
 
 	//funcion para obtener los productos que comercializa un chofer especifico
-	public function getProductosChofer($data) {
+	public function getClientesChofer($data) {
 		//obtenemos productos del chofer
 		$query = $this->db->query("
 			SELECT 
-				p.idProducto,
-			    p.nombre_producto,
-			    p.presentacion, 
-			    p.precio_publico,
-			    p.status 
+			    c.idCliente,
+			    c.nombre as nombre,
+			    c.direccion as direccion
 			FROM
-			    detalle_salidas_entradas as dse
+			    rol_clientes as rc
 			INNER JOIN 
-			    salidas_entradas as se ON dse.idSalidas_entradas = se.idSalidas_entradas 
+			    rol_vendedores as rv ON rc.idRol = rv.idRol 
 			INNER JOIN
-			    productos as p ON dse.idProducto = p.idProducto 
+			    clientes as c ON rc.idCliente = c.idCliente 
 			WHERE 
-			    se.idUsuario = ". $data['usuario'] ." and 
-			    se.fecha ='". $data['fecha'] ."'
-			ORDER BY p.nombre_producto
+			    rv.idUsuario = ". $data['usuario'] ."
+			ORDER BY nombre;
 		");
 		//si hay productos, regresamos los resultados
 		if ($query -> num_rows() > 0) {
@@ -36,10 +34,10 @@ class Inventario_model extends My_Model {
 
 	}
 
-	public function getProducto($id){
+	public function getCliente($id){
 		//comparamos si los id son iguales 
-		$this->db->where('idProducto',$id);
-		$query=$this->db->get('productos');
+		$this->db->where('idCliente',$id);
+		$query=$this->db->get('clientes');
 		if($query -> num_rows() > 0) {
 			return $query;
 		}

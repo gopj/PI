@@ -56,9 +56,15 @@ class Ventas extends My_Controller {
 		$data['sidebar'] = $this -> menu -> construirSidebar(
 			array('Crear venta', 'Ver detalles venta'), 'Crear venta');
 
+		//obtenemos los clientes 
 		$data['clientes'] = $this -> cliente -> getClientes();
 
-		$data['productos'] = $this -> inventario -> getProductos();
+		//datos del usuario actual, y fecha
+		$data['usuario'] = $this->session->userdata['user']['idUsuario'];
+		$data['fecha'] = date( 'Y-m-d');
+
+		//obtenemos los productos del chofer actual
+		$data['productos'] = $this -> inventario -> getProductosChofer($data);
 
 		$data['output'] = $this -> load -> view('chofer-vendedor/ventas/crearVenta', $data, true);
 		

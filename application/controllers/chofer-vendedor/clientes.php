@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Inventario extends My_Controller {
+class Clientes extends My_Controller {
 
 	public function __construnct() {
 		parent::__construct();
@@ -11,24 +11,23 @@ class Inventario extends My_Controller {
 	public function index() {
 		$this->setLayout('chofer_vendedor');
 
-		$this->load->model('chofer-vendedor/inventario_model','inventario');
+		$this->load->model('chofer-vendedor/clientes_model','clientes');
 
 		//cargamos la libreria
 		$this -> load -> library('menu');
 
 		//construimos nuestro sidebar
 		$data['sidebar'] = $this -> menu -> construirSidebar(
-			array('Ver producto'), '');
+			array('Ver cliente'), '');
 
 		$data['usuario'] = $this->session->userdata['user']['idUsuario'];
-		$data['fecha'] = date( 'Y-m-d');
 		
 		//obtenemos los productos del chofer actual 
-		$data['productosChofer'] = $this->inventario->getProductosChofer($data);
+		$data['clientesChofer'] = $this->clientes->getClientesChofer($data);
 		
-		$data['output'] = $this->load->view('chofer-vendedor/inventario/index', $data, true);
+		$data['output'] = $this->load->view('chofer-vendedor/clientes/index', $data, true);
 		
-		$this->load->view('chofer-vendedor/inventario/index', $data);
+		$this->load->view('chofer-vendedor/clientes/index', $data);
 
 	}
 }
