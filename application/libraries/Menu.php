@@ -12,10 +12,10 @@
 						<ul class='nav'>";
 			foreach($array as $opcion){
 				if($opcion==$vistaActual){
-					$menu .= "<li class='active'> <a href='#''>" . $opcion ."</a></li>";
+					$menu .= "<li class='active'> <a href='#'>" . $opcion ."</a></li>";
 				}
 				else{
-					$menu .= "<li> <a href='#''>" . $opcion ."</a></li>";
+					$menu .= "<li> <a href='#'>" . $opcion ."</a></li>";
 				}
 			}
 			$menu .= "</ul>
@@ -41,16 +41,21 @@
 			return $menu;
 		}
 
-		function construirSidebar($array,$opcionActual){
+		function construirSidebar($array,$opcionActual,$subMenu,$arrayMetodos){
 		    $side = "<ul class='nav nav-list'>";
 		    $side .= "<li class='nav-header'>Opciones</li>";
+		    $i=0;
+		   $base = base_url();
 			foreach($array as $opcion){
 				if($opcion==$opcionActual){
-					$side .= "<li class='active'> <a href='#''>" . $opcion ."</a></li>";
+					$side .= "<li class=''> <a href='".$base."
+					". $subMenu . "/" . $arrayMetodos[$i] ."'>" . $opcion ."</a></li>";
 				}
 				else{
-					$side .= "<li> <a href='#''>" . $opcion ."</a></li>";
+					$side .= "<li class=''> <a href='".$base."
+					". $subMenu . "/" . $arrayMetodos[$i] ."'>" . $opcion ."</a></li>";
 				}
+				$i+=1; //incrementamos leer el otro metodo del link
 			}
 			$side .= "</ul>";
 

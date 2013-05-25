@@ -18,7 +18,10 @@ class Ventas extends My_Controller {
 
 		//construimos nuestro sidebar
 		$data['sidebar'] = $this -> menu -> construirSidebar(
-			array('Crear venta', 'Ver detalles venta'), '');
+			array('Crear venta', 'Ver detalles venta'), //opciones sidebar
+			'', //opcion seleccionada
+			'chofer-vendedor/ventas', //submenu actual, en este caso ventas
+			array('crearVenta','verDetallesVenta'));
 
 		//obtenemos las ventas y las mostramos */
 		$data['ventas'] = $this -> ventas -> getVentas();
@@ -54,7 +57,10 @@ class Ventas extends My_Controller {
 		$this -> load -> library('menu');
 
 		$data['sidebar'] = $this -> menu -> construirSidebar(
-			array('Crear venta', 'Ver detalles venta'), 'Crear venta');
+			array('Crear venta', 'Ver detalles venta'), //opciones sidebar
+			'Crear venta', //opcion seleccionada
+			'chofer-vendedor/ventas', //submenu actual, en este caso ventas
+			array('crearVenta','verDetallesVenta'));
 
 		//obtenemos los clientes 
 		$data['clientes'] = $this -> cliente -> getClientes();

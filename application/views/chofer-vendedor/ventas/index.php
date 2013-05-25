@@ -35,7 +35,8 @@
 	</tbody>
 </table>
 
-<p><?php for ($i = 0; $i < count($productos); $i++){ 
+<!--
+<p><?php /*for ($i = 0; $i < count($productos); $i++){ 
 	echo $productos[$i];
 	echo "<h1>hola</h1>";
 } ?>
@@ -54,4 +55,4 @@
 <p><?= $fecha ?></p>
 <p><?= $total ?></p>
 
-<!--<p><?= $id ?></p>-->
+<!--<p><?= $id */?></p>-->

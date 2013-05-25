@@ -5,9 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 		<!-- Le styles -->
-		<link href="<?= base_url()?>/css/bootstrap.css" rel="stylesheet">
-		<link href="<?= base_url()?>/css/main.css" rel="stylesheet">
-		<link href="<?= base_url()?>/css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="<?= base_url()?>css/bootstrap.css" rel="stylesheet">
+		<link href="<?= base_url()?>css/main.css" rel="stylesheet">
+		<link href="<?= base_url()?>css/bootstrap-responsive.css" rel="stylesheet">
 
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
@@ -54,9 +54,9 @@
               					<?=$this->session->userdata['user']['nombre'];?>
             				</p>
 							<ul class='nav'>
-								<li class="active"> <a href='<?=base_url();?>/chofer-vendedor/index'>Inicio</a></li>
-								<li> <a href='<?=base_url();?>/chofer-vendedor/acercaDe'>Acerca de</a></li>
-								<li> <a href='<?=base_url();?>/chofer-vendedor/contacto'>Contacto</a></li>
+								<li class="active"> <a href='<?=base_url();?>chofer-vendedor/index'>Inicio</a></li>
+								<li> <a href='<?=base_url();?>chofer-vendedor/acercaDe'>Acerca de</a></li>
+								<li> <a href='<?=base_url();?>chofer-vendedor/contacto'>Contacto</a></li>
 							</ul>
 							
 						</div>
@@ -72,10 +72,10 @@
             <!--<?= $menu_secundario; ?>-->
             <div class='navbar-inner'>
 				<ul class='nav pull-right'>
-					<li> <a href='<?=base_url();?>/chofer-vendedor/ventas'>Ventas</a></li>
-					<li> <a href='<?=base_url();?>/chofer-vendedor/inventario'>Inventario</a></li>
-					<li> <a href='<?=base_url();?>/chofer-vendedor/clientes'>Clientes</a></li>
-					<li> <a href='<?=base_url();?>/chofer-vendedor/registro'>Registro</a></li>
+					<li> <a href='<?=base_url();?>chofer-vendedor/ventas'>Ventas</a></li>
+					<li> <a href='<?=base_url();?>chofer-vendedor/inventario'>Inventario</a></li>
+					<li> <a href='<?=base_url();?>chofer-vendedor/clientes'>Clientes</a></li>
+					<li> <a href='<?=base_url();?>chofer-vendedor/registro'>Registro</a></li>
 				</ul>
 			</div>
         </div>
@@ -123,22 +123,22 @@
 		</footer>
 		<!--Fin footer-->
 		
-		<script src="<?= base_url()?>/js/jquery.js"></script>
-		<script src="<?= base_url()?>/js/bootstrap-transition.js"></script>
-		<script src="<?= base_url()?>/js/bootstrap-alert.js"></script>
-		<script src="<?= base_url()?>/js/bootstrap-modal.js"></script>
-		<script src="<?= base_url()?>/js/bootstrap-dropdown.js"></script>
-		<script src="<?= base_url()?>/js/bootstrap-scrollspy.js"></script>
-		<script src="<?= base_url()?>/js/bootstrap-tab.js"></script>
-		<script src="<?= base_url()?>/js/bootstrap-tooltip.js"></script>
-		<script src="<?= base_url()?>/js/bootstrap-popover.js"></script>
-		<script src="<?= base_url()?>/js/bootstrap-button.js"></script>
-		<script src="<?= base_url()?>/js/bootstrap-collapse.js"></script>
-		<script src="<?= base_url()?>/js/bootstrap-carousel.js"></script>
-		<script src="<?= base_url()?>/js/bootstrap-typeahead.js"></script>
-		<script src="<?= base_url()?>/js/bootstrap-affix.js"></script>
-		<script src="<?= base_url()?>/js/holder/holder.js"></script>
-		<script src="<?= base_url()?>/js/application.js"></script>
+		<script src="<?= base_url()?>js/jquery.js"></script>
+		<script src="<?= base_url()?>js/bootstrap-transition.js"></script>
+		<script src="<?= base_url()?>js/bootstrap-alert.js"></script>
+		<script src="<?= base_url()?>js/bootstrap-modal.js"></script>
+		<script src="<?= base_url()?>js/bootstrap-dropdown.js"></script>
+		<script src="<?= base_url()?>js/bootstrap-scrollspy.js"></script>
+		<script src="<?= base_url()?>js/bootstrap-tab.js"></script>
+		<script src="<?= base_url()?>js/bootstrap-tooltip.js"></script>
+		<script src="<?= base_url()?>js/bootstrap-popover.js"></script>
+		<script src="<?= base_url()?>js/bootstrap-button.js"></script>
+		<script src="<?= base_url()?>js/bootstrap-collapse.js"></script>
+		<script src="<?= base_url()?>js/bootstrap-carousel.js"></script>
+		<script src="<?= base_url()?>js/bootstrap-typeahead.js"></script>
+		<script src="<?= base_url()?>js/bootstrap-affix.js"></script>
+		<script src="<?= base_url()?>js/holder/holder.js"></script>
+		<script src="<?= base_url()?>js/application.js"></script>
 
 		<script src="<?=base_url('js/bootstrap.js')?>"> </script>
 		<script src="<?=base_url('js/jquery-1.9.0.js')?>"> </script>

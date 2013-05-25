@@ -18,7 +18,10 @@ class Clientes extends My_Controller {
 
 		//construimos nuestro sidebar
 		$data['sidebar'] = $this -> menu -> construirSidebar(
-			array('Ver cliente'), '');
+			array('Ver cliente'), //opciones sidebar
+			'', //opcion seleccionada
+			'chofer-vendedor/clientes', //submenu actual, en este caso ventas
+			array('verCliente'));
 
 		$data['usuario'] = $this->session->userdata['user']['idUsuario'];
 		
