@@ -64,6 +64,7 @@ class Clientes extends My_Controller {
 			$client['nombre'] = $this->input->post("nombre");
 			$client['direccion'] = $this->input->post("direccion");
 			$client['idMunicipio'] = $this->input->post("idMunicipio");
+			$client['status'] = $this->input->post("estado");
 
 			if ( $client->save() ){
 				redirect('admin/clientes');

@@ -1,7 +1,18 @@
 <div class="span8 offset4">
 	<h2>Modificar Producto</h2>
 
-	<?php echo form_open('admin/productos/update/'.$producto['idProducto'], 'class="form-horizontal"'); ?>
+	<?php echo form_open('admin/productos/update/'.$producto['idProducto'], 'class="form-horizontal"');
+	$activo = $producto['status'];
+	if ($activo == '1'){
+		$activo="<option value='1' selected>Activo</option>
+		 <option value='0'>Inactivo</option>";
+		}
+	else{
+		 $activo="<option value='1'>Activo</option>
+		 <option value='0' selected>Inactivo</option>";
+		 }
+
+	?>
 
 		<label class="control-label" for="nombre">Nombre Producto:</label>
 		<div class="controls">
@@ -23,11 +34,22 @@
 			<?=form_input('precio_publico', $producto['precio_publico'], ' id="Precio_publico" placeholder="Precio de Publico"')?> <br />
 		</div>
 
-		<label class="control-label" for="es">Estado</label>
+		<label class="control-label" for="status">Estado:</label>
 		<div class="controls">
-			<?=form_input('status', $producto['status'], ' id="es" placeholder=""')?> <br />
+			<select name="status">
+				<?php echo $activo; ?>
+			</select>
 		</div>
 
+		<label class="control-label" for="cant">Cantidad:</label>
+		<div class="controls">
+			<?=form_input('cantidad', $producto['cantidad'], ' id="cant" placeholder=""')?> <br />
+		</div>
+
+		<label for="caducidad">Fecha de caducidad: </label>
+		<div class="controls">
+			<input name="caducidad" type="date" value=<?php echo '"'. $producto['fecha_caducidad'] .'"'?>/>
+		</div>
 		
 		<br /> <br />
 

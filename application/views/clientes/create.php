@@ -1,5 +1,5 @@
 <div class="span8 offset4">
-	<h2>Crear Usuarios</h2>
+	<h2>Crear Cliente</h2>
 
 	<?php echo form_open('admin/clientes/create', 'class="form-horizontal"'); ?>
 

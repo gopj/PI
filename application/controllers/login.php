@@ -29,6 +29,8 @@ class Login extends My_Controller {
 					case '2':
 						redirect("chofer-vendedor/index/");
 						break;
+					case '3':
+						redirect("gerenteVentas/index");
 				}
 	
 

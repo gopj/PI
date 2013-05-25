@@ -28,7 +28,7 @@ class Usuarios extends My_Controller {
 			$user['nombre_usuario'] = $this->input->post("nombre_usuario");
 			$user['clave'] = MD5($this->input->post("clave"));
 			$user['idTipo_usuario'] = $this->input->post("idTipo_usuario");
-
+			$user['status'] = 1;
 			if ( $user->save() ){
 
 				redirect('admin/usuarios');
@@ -59,6 +59,7 @@ class Usuarios extends My_Controller {
 			$user['idTipo_usuario'] = $this->input->post("idTipo_usuario");
 			$user['nombre_usuario'] = $this->input->post("nombre_usuario");
 			$user['clave'] = MD5($this->input->post("clave"));
+			$user['status'] = $this->input->post("estado");
 
 			if ( $user->save() ){
 

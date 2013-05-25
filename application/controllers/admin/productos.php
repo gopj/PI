@@ -27,6 +27,8 @@ class Productos extends My_Controller {
 			$product['precio_fabrica'] = $this->input->post("precio_fabrica");
 			$product['precio_publico'] = $this->input->post("precio_publico");
 			$product['status'] = 1;
+			$product['cantidad'] = $this->input->post("cantidad");
+			$product['fecha_caducidad'] = $this->input->post("caducidad");
 
 			if ( $product->save() ){
 				redirect('admin/productos');
@@ -55,6 +57,9 @@ class Productos extends My_Controller {
 			$product['precio_fabrica'] = $this->input->post("precio_fabrica");
 			$product['precio_publico'] = $this->input->post("precio_publico");
 			$product['status'] = $this->input->post("status");
+			$product['cantidad'] = $this->input->post("cantidad");
+			$product['fecha_caducidad'] = $this->input->post("caducidad");
+
 
 			if ( $product->save() ){
 				redirect('admin/productos');

@@ -11,12 +11,17 @@
 			<th>Precio Fabrica</th>
 			<th>Precio Venta</th>
 			<th>Estado del producto</th>
+			<th>Cantidad</th>
+			<th>Fecha de caducidad</th>
 			<th colspan="2">Opciones</th>
 		</tr>
 	</thead>
 
 	<?php
 		foreach ($productos as $key => $producto) {
+			$val = $producto->status;
+			if ($val == '1'){$val = "Activo";}
+			else {$val = "Inactivo";}
 			echo "
 				<tr>
 					<td>".$producto->idProducto."</td>
@@ -24,7 +29,9 @@
 					<td>".$producto->presentacion." gms </td>
 					<td> $ ".$producto->precio_fabrica."</td>
 					<td> $ ".$producto->precio_publico."</td>
-					<td>".$producto->status."</td>
+					<td>".$val."</td>
+					<td>".$producto->cantidad." piezas</td>
+					<td>".$producto->fecha_caducidad."</td>
 					<td>
 						" . anchor( "admin/productos/update/".$producto->idProducto , "Editar" , "class='btn btn-primary'" ) . "
 						" . anchor( "admin/productos/delete/".$producto->idProducto , "Eliminar" , "class='btn btn-danger'" ) . "
