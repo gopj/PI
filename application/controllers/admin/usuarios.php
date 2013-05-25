@@ -77,10 +77,13 @@ class Usuarios extends My_Controller {
 	}
 
 	public function delete($id = null){
-		$this->user['idUsuario'] = $id;
-		if ( $this->user->delete() ){
+		$usr = new User_model();
 
+		$usr['idUsuario'] = $id;
+		$usr['status'] = 0;
+
+		if ( $usr->save() ){
+			redirect('admin/usuarios');
 		}
-		redirect("admin/usuarios");
-	}	
+	}		
 }
