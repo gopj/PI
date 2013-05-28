@@ -8,18 +8,14 @@ class Cliente_model extends My_Model{
         parent::__construct();
     }
 
-	public function getAllToSelect(){
-	/*	$perfilesResult = $this->getAll();
-		$perfiles = array();
-		foreach ($perfilesResult as $key => $perfil) {
-			$perfiles[$perfil->idTipo_usuario] = $perfil->nombre;
-		}
-		return $perfiles;*/
-	}
-
 	public function getClientes(){
 		//un query que obtiene los cursos
-		$query = $this->db->get('clientes');
+		$query = $this->db->query('
+			select cl.idCliente as idCliente, cl.nombre as nombre, cl.direccion as direccion, mu.nombre as idMunicipio , cl.status as status
+			from clientes as cl, municipios as mu
+			where 
+			cl.idMunicipio = mu.idMunicipio;
+		');
 		//si hay cursos, regresamos los resultados
 		if($query -> num_rows() > 0) {
 			return $query;

@@ -1,9 +1,9 @@
 <div class="span8 offset4">
 	<h2>Crear Cliente</h2>
 
-	<?php echo form_open('admin/clientes/create', 'class="form-horizontal"'); ?>
+	<?php echo form_open('admin/clientes/create'); ?>
 
-		<label class="control-label" for="nombre">Nombre usuario:</label>
+		<label class="control-label" for="nombre">Nombre Cliente:</label>
 		<div class="controls">
 			<?=form_input('nombre', '', '  id="nombre" placeholder="Nombre del Cliente"')?> <br />
 		</div>

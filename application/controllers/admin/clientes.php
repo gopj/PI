@@ -12,7 +12,7 @@ class Clientes extends My_Controller {
 
 	public function index($pag = null){
 		
-		$data['clientes'] = $this->cliente->getAll();	
+		$data['clientes'] = $this->cliente->getClientes();	
 
 		$this->load->view('clientes/index', $data);
 	}

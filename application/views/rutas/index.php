@@ -1,4 +1,4 @@
-<h2>Usuarios</h2>
+<h2>Rutas</h2>
 <p>
 	<?=anchor( "admin/rutas/create/" ,"Agregar" ,"class='btn btn-primary'" )?>
 </p>
@@ -13,12 +13,12 @@
 	</thead>
 
 	<?php
-		foreach ($rutas as $key => $ruta) {
+		foreach ($rutas ->result() as $ruta) {
 			echo "
 				<tr>
 					<td>".$ruta->idRuta."</td>
-					<td>".$ruta->nombre_ruta."</td>
-					<td>".$ruta->idUsuario."</td>
+					<td>".$ruta->nombre."</td>
+					<td>".$ruta->nombreUser."</td>
 					<td>
 						" . anchor( "admin/rutas/update/".$ruta->idRuta , "Editar" , "class='btn btn-primary'" ) . "
 						" . anchor( "admin/rutas/delete/".$ruta->idRuta , "Eliminar" , "class='btn btn-danger'" ) . "

@@ -1,7 +1,7 @@
 <div class="span8 offset4">
 	<h2>Modificar Cliente</h2>
 
-	<?php echo form_open('admin/clientes/update/'. $cliente['idCliente'], 'class="form-horizontal"'); 
+	<?php echo form_open('admin/clientes/update/'. $cliente['idCliente']); 
 	$activo = $cliente['status'];
 	if ($activo == '1'){
 		$activo="<option value='1' selected>Activo</option>
@@ -13,7 +13,7 @@
 		 }
 	?>
 
-		<label class="control-label" for="nombre">Nombre usuario:</label>
+		<label class="control-label" for="nombre">Nombre Cliente:</label>
 		<div class="controls">
 			<?=form_input('nombre', $cliente['nombre'], '  id="nombre" placeholder="Nombre del Cliente"')?> <br />
 		</div>

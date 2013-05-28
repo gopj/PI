@@ -14,7 +14,7 @@
 	</thead>
 
 	<?php
-		foreach ($clientes as $key => $cliente) {
+		foreach ($clientes ->result() as $cliente) {
 			$val = $cliente->status;
 			if ($val == '1'){$val = "Activo";}
 			else {$val = "Inactivo";}

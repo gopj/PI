@@ -6,9 +6,47 @@ class User_model extends My_Model {
 
 		$this->tableName = 'usuarios';
 		$this->primaryKey = 'idUsuario';
+		$this->load->database();
 
 		parent::__construct();
 
+	}
+
+	public function getUsers(){
+
+		$query = $this->db->query('
+			select u.idUsuario as idUsuario, t.nombre as idTipo_usuario, u.nombre_usuario as nombre_usuario, u.status as status
+			from usuarios as u, tipo_usuarios as t
+			where 
+			u.idTipo_usuario = t.idTipo_usuario;
+		');
+		if($query -> num_rows() > 0) {
+			return $query;
+		}
+		//si no hay regresamos un false
+		else{
+			return false;	
+		}
+		return $query;
+	}
+
+	public function getChoferes(){
+		$this->db->where('idTipo_usuario',2);
+		$nombreUsers = $this->db->get('usuarios');
+		
+		return $nombreUsers;
+	}
+
+	public function getIdChoferes(){
+		$this->db->where('idTipo_usuario',2);
+		$nombreUsers = $this->db->get('usuarios');
+		//$nombreUsers = $this->getAll();
+		$users = array();
+		foreach ($nombreUsers->result() as $user) {
+			$users[$user->nombre_usuario] = $user->idUsuario;
+		}
+		
+		return $users;
 	}
 
 	public function identificar($nombre_usuario, $clave){
