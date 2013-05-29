@@ -1,7 +1,7 @@
 <div class="span8 offset4">
-	<h2>Crear Productos</h2>
+	<h2>Crear Producto</h2>
 
-	<?php echo form_open('admin/productos/create', 'class="form-horizontal"'); ?>
+	<?php echo form_open('admin/productos/create'); ?>
 
 		<label class="control-label" for="Nombre_producto">Nombre Producto:</label>
 		<div class="controls">

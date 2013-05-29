@@ -1,7 +1,7 @@
 <div class="span8 offset4">
-	<h2>Modificar Roles</h2>
+	<h2>Modificar Rol</h2>
 
-	<?php echo form_open('admin/roles/update/'. $rol['idRol'], 'class="form-horizontal"');?>
+	<?php echo form_open('admin/roles/update/'. $rol['idRol']);?>
 
 		<label class="control-label" for="rol1">Nombre rol:</label>
 		<div class="controls">

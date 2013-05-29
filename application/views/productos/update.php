@@ -1,7 +1,7 @@
 <div class="span8 offset4">
 	<h2>Modificar Producto</h2>
 
-	<?php echo form_open('admin/productos/update/'.$producto['idProducto'], 'class="form-horizontal"');
+	<?php echo form_open('admin/productos/update/'.$producto['idProducto']);
 	$activo = $producto['status'];
 	if ($activo == '1'){
 		$activo="<option value='1' selected>Activo</option>
