@@ -12,18 +12,10 @@ class Clientes extends My_Controller {
 
 	public function index($pag = null){
 		
-		$data['clientes'] = $this->cliente->getAll();	
+		$data['clientes'] = $this->cliente->getClientes();	
 
 		$this->load->view('clientes/index', $data);
 	}
-
-	public function delete($id = null){
-		$this->cliente['idCliente'] = $id;
-		if ( $this->cliente->delete() ){
-
-		}
-		redirect("admin/clientes");
-	}	
 
 	public function create($id = null){
 		
@@ -78,7 +70,18 @@ class Clientes extends My_Controller {
 
 
 		$this->load->view("clientes/update", $data);
-	}	
+	}
+
+	public function delete($id = null){
+		$cl = new Cliente_model();
+
+		$cl['idCliente'] = $id;
+		$cl['status'] = 0;
+
+		if ( $cl->save() ){
+			redirect('admin/clientes');
+		}
+	}		
 
 	
 }

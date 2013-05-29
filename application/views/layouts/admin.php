@@ -41,6 +41,8 @@
 							<li><a href="<?=base_url();?>admin/productos"> Productos </a></li>
 							<li><a href="<?=base_url();?>admin/clientes"> Clientes </a></li>
 							<li><a href="<?=base_url();?>admin/municipios"> Municipios </a></li>
+							<li><a href="<?=base_url();?>admin/rutas"> Rutas </a></li>
+							<li><a href="<?=base_url();?>admin/roles"> Roles </a></li>
 						</ul>
 					</li>
 					<li class="divider-vertical"></li>

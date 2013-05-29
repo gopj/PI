@@ -1,7 +1,7 @@
 <div class="span8 offset4">
-	<h2>Modificar Usuarios</h2>
+	<h2>Modificar Usuario</h2>
 
-	<?php echo form_open('admin/usuarios/update/'. $user['idUsuario'], 'class="form-horizontal"'); 
+	<?php echo form_open('admin/usuarios/update/'. $user['idUsuario']); 
 		$activo = $user['status'];
 	if ($activo == '1'){
 		$activo="<option value='1' selected>Activo</option>
@@ -13,12 +13,12 @@
 		 }
 	?>
 
-		<label class="control-label" for="nombre">Nombre usuario</label>
+		<label class="control-label" for="nombre">Nombre usuario:</label>
 		<div class="controls">
 			<?=form_input('nombre_usuario', $user['nombre_usuario'], '  id="nombre" placeholder="Nombre del usuario"')?> <br />
 		</div>
 
-		<label class="control-label" for="clave">Clave</label>
+		<label class="control-label" for="clave">Clave:</label>
 		<div class="controls">
 			<?=form_password('clave', '', ' id="clave" placeholder="Clave"')?> <br />
 		</div>

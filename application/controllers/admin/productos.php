@@ -70,11 +70,14 @@ class Productos extends My_Controller {
 	}
 
 	public function delete($id = null){
-		$this->producto['idProducto'] = $id;
-		if ( $this->producto->delete() ){
+		$product = new Producto_model();
 
+		$product['idProducto'] = $id;
+		$product['status'] = 0;
+
+		if ( $product->save() ){
+			redirect('admin/productos');
 		}
-		redirect("admin/productos");
 	}	
 
 	

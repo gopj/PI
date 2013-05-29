@@ -16,6 +16,12 @@ class Municipio_model extends My_Model{
 		}
 		return $muni;
 	}
+
+	public function getMunicipios(){
+		$municipios = $this->db->get('municipios');
+		
+		return $municipios;
+	}
 }
 
 	
