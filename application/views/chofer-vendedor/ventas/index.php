@@ -1,5 +1,5 @@
-<h2>Ventas del dia</h2>
-<table class="table table-bordered">
+<h2>Ventas </h2>
+<table class="table table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>#</th>
@@ -17,13 +17,14 @@
 			?>
 				<tr>
 					<td>
-					<a href="<?= $venta->idVenta; ?>">
+					<a title='Ver detalle' href="<?=base_url();?>chofer-vendedor/ventas/index/
+							<?= $venta->idVenta; ?>">
 							<?= $venta->idVenta; ?> 
-						</a>
+					</a>
 					</td>
-					<td><?= $venta->idUsuario; ?></td>
-					<td><?= $venta->idCliente; ?></td>
-					<td><?= $venta->fecha_venta; ?></td>
+					<td><?= $venta->usuario; ?></td>
+					<td><?= $venta->cliente; ?></td>
+					<td><?= $venta->fecha; ?></td>
 					<td><?= $venta->total; ?></td>
 				</tr>
 			<?php 
@@ -35,24 +36,43 @@
 	</tbody>
 </table>
 
-<!--
-<p><?php /*for ($i = 0; $i < count($productos); $i++){ 
-	echo $productos[$i];
-	echo "<h1>hola</h1>";
-} ?>
-</p>
-<hr>
-<p><?php for ($i = 0; $i < count($cantidad); $i++){ 
-	echo $cantidad[$i];
-	echo "<h1>hola</h1>";
-} 
-?></p>
-<!--<p><?php //echo $cantidad ?></p>
-<p><?php //for ($i = 0; $i < count($cantidad); $i++){ echo $cantidad[$i];} ?></p>
-<hr>
-<p><?= $usuario ?></p>
-<p><?= $cliente ?></p>
-<p><?= $fecha ?></p>
-<p><?= $total ?></p>
+<!--Si consulta solo una venta, se le muestra el detalle de la venta -->
+<?php if (isset($detalleVenta)): ?>
+<h2>Detalle de la venta</h2>
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>idVenta</th>
+			<th>Producto</th>
+			<th>Presentacion</th>
+			<th>Caducidad</th>
+			<th>Precio</th>
+			<th>Cantidad comprada</th>
+		</tr>
+	</thead>
+	<tbody>
+<?php 
+	//vemos si ventas contiene algo
+	if($detalleVenta):
+		foreach ($detalleVenta->result() as $detalle): 
+			?>
+				<tr>
+					<td><?= $detalle->idVenta; ?></a></td>
+					<td><?= $detalle->producto; ?></td>
+					<td><?= $detalle->presentacion . " gr"; ?></td>
+					<td><?= $detalle->caducidad; ?></td>
+					<td><?= $detalle->precio; ?></td>
+					<td><?= $detalle->cantidad; ?></td>
+				</tr>
+			<?php 
+		endforeach;
+	else:
+		echo "<p>Error en la aplicacion</p>";
+	endif;
+?>
+	</tbody>
+</table>
 
-<!--<p><?= $id */?></p>-->
+<?php endif; ?>
+
+

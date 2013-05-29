@@ -5,9 +5,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 		<!-- Le styles -->
-		<link href="<?= base_url()?>css/bootstrap.css" rel="stylesheet">
+		<link href="<?= base_url()?>css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?= base_url()?>css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link href="<?= base_url()?>css/main.css" rel="stylesheet">
-		<link href="<?= base_url()?>css/bootstrap-responsive.css" rel="stylesheet">
+
+		<!--<link rel="stylesheet" type="text/css" media="screen" 
+		href="<?= base_url()?>css/bootstrap.min.css"/>
+
+		<link rel="stylesheet" type="text/css" media="screen" 
+		href="<?= base_url()?>css/bootstrap-responsive.min.css"/>-->
 
 		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		<!--[if lt IE 9]>
@@ -72,10 +78,9 @@
             <!--<?= $menu_secundario; ?>-->
             <div class='navbar-inner'>
 				<ul class='nav pull-right'>
-					<li> <a href='<?=base_url();?>chofer-vendedor/ventas'>Ventas</a></li>
-					<li> <a href='<?=base_url();?>chofer-vendedor/inventario'>Inventario</a></li>
-					<li> <a href='<?=base_url();?>chofer-vendedor/clientes'>Clientes</a></li>
-					<li> <a href='<?=base_url();?>chofer-vendedor/registro'>Registro</a></li>
+					<li> <a href='<?=base_url();?>chofer-vendedor/ventas/index'>Ventas</a></li>
+					<li> <a href='<?=base_url();?>chofer-vendedor/inventario/index'>Inventario</a></li>
+					<li> <a href='<?=base_url();?>chofer-vendedor/clientes/index'>Clientes</a></li>
 				</ul>
 			</div>
         </div>

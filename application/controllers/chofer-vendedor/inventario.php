@@ -2,17 +2,15 @@
 
 class Inventario extends My_Controller {
 
-	public function __construnct() {
-		parent::__construct();
+	function __construct() {
+		parent::__construct(true);
+		$this->setLayout('chofer_vendedor');
 
+		$this->load->model('chofer-vendedor/inventario_model','inventario');
 	}
 
 	//el index de ventas del usuario chofer vendedor
 	public function index() {
-		$this->setLayout('chofer_vendedor');
-
-		$this->load->model('chofer-vendedor/inventario_model','inventario');
-
 		//cargamos la libreria
 		$this -> load -> library('menu');
 
@@ -20,11 +18,10 @@ class Inventario extends My_Controller {
 		$data['sidebar'] = $this -> menu -> construirSidebar(
 			array('Ver producto'), //opciones sidebar
 			'', //opcion seleccionada
-			'chofer-vendedor/inventario', //submenu actual, en este caso ventas
+			'chofer-vendedor/inventario', //submenu actual, en este caso inventario
 			array('verProducto'));
 
 		$data['usuario'] = $this->session->userdata['user']['idUsuario'];
-		$data['fecha'] = date( 'Y-m-d');
 		
 		//obtenemos los productos del chofer actual 
 		$data['productosChofer'] = $this->inventario->getProductosChofer($data);

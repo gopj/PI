@@ -14,7 +14,9 @@ class Inventario_model extends My_Model {
 			    p.nombre_producto,
 			    p.presentacion, 
 			    p.precio_publico,
-			    p.status 
+			    p.status,
+			    p.fecha_caducidad,
+			    dse.cantidadLleva as cantidad 
 			FROM
 			    detalle_salidas_entradas as dse
 			INNER JOIN 
@@ -22,8 +24,8 @@ class Inventario_model extends My_Model {
 			INNER JOIN
 			    productos as p ON dse.idProducto = p.idProducto 
 			WHERE 
-			    se.idUsuario = ". $data['usuario'] ." and 
-			    se.fecha ='". $data['fecha'] ."'
+			    se.idUsuario = ". $data['usuario'] ." 
+			    /*and se.fecha =(SELECT CURRENT_DATE())*/
 			ORDER BY p.nombre_producto
 		");
 		//si hay productos, regresamos los resultados
@@ -34,6 +36,24 @@ class Inventario_model extends My_Model {
 			return false;
 		}
 
+	}
+
+	//funcion para obtener todos los productos caducados
+	public function getProductosCaducados(){
+		$query=$this->db->query('
+			SELECT 
+				* 
+			FROM 
+				productos as p
+			WHERE 
+				p.fecha_caducidad < (SELECT CURRENT_DATE());  
+		');
+		if($query -> num_rows() > 0) {
+			return $query;
+		}
+		else{
+			return false;	
+		}
 	}
 
 	public function getProducto($id){

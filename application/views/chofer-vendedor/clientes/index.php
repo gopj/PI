@@ -1,27 +1,31 @@
 
 	<h2>Clientes</h2>
-	<table class="table table-hover">
+	<table class="table table-hover table-bordered">
 		<thead>
 			<tr>
 				<th>Id</th>
 				<th>Nombre</th>
-				<th>Direccion</th>
+				<th>Dirección</th>
+				<th>Municipio</th>
+				<th>Día</th>
 			</tr>
 		</thead>
 		<tbody>
 	<?php 
 		//vemos si ventas contiene algo
 		if($clientesChofer):
-			foreach ($clientesChofer->result() as $cliente): 
+			foreach ($clientesChofer->result() as $cliente):
+				if($cliente->status == "1"): 
+					echo "<tr class='success'>";
+				else:
+					echo "<tr class='error'>"; 
+				endif; 
 				?>
-					<tr>
-						<td>
-						<a href="<?= $cliente->idCliente; ?>">
-								<?= $cliente->idCliente; ?> 
-							</a>
-						</td>
+						<td><?= $cliente->idCliente; ?> </td>
 						<td><?= $cliente->nombre; ?></td>
 						<td><?= $cliente->direccion; ?></td>
+						<td><?= $cliente->municipio; ?></td>
+						<td><?= $cliente->dia; ?></td>
 					</tr>
 				<?php 
 			endforeach;
@@ -31,3 +35,14 @@
 	?>
 		</tbody>
 	</table>
+
+<script type="text/javascript">
+	function getDia(intDia){
+		var dia=intDia;
+		if(dia==2){
+			return "Lunes";
+		}
+		
+	}
+
+</script>
