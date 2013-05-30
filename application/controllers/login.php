@@ -24,13 +24,20 @@ class Login extends My_Controller {
 				switch ($this->session->userdata['user']['perfil']){
 					case '1':
 						redirect("admin/index/");
-						break;
-					
+						break;					
 					case '2':
 						redirect("chofer-vendedor/index/");
 						break;
 					case '3':
-						redirect("gerenteVentas/index");
+						redirect("gefeVentas/index");
+						break;
+					case '4':
+						redirect("inventario/index/");
+						break;
+					case '5':
+						redirect("gerenteVentas/index/");
+						break;
+						
 				}
 	
 

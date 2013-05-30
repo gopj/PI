@@ -4,17 +4,15 @@ class Index extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();
-		
+		$this->load->library('menu');
 		$this->setLayout('gerenteVentas');
 	}
 	public function index(){
-
-		//cargamos la libreria
-		$this->load->library('menu');
-
-		//construimos nuestro sidebar
 		$data['sidebar'] = $this -> menu -> construirSidebar(
-			array('Una opcion', 'Otra opcion'), '');
+			array('Ventas', 'Bajas de inventario'), 
+			'',
+			'gerenteVentas',
+			array('ventas','bajas'));
 
 		$this->load->view('gerenteVentas/index/index', $data);
 	}
