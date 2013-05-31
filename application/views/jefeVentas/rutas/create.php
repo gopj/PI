@@ -1,6 +1,6 @@
-<div class="span8 offset4">
+
 	<h2>Crear Ruta</h2>
-	<?= form_open('admin/rutas/create'); 
+	<?= form_open('jefeVentas/rutas/create'); 
 	?>		
 		<label class="control-label" for="clave">Municipio:</label>
 				<div class="controls">
@@ -50,4 +50,3 @@
 
 		<input type="submit" name="save" value="Guardar" class="btn btn-success" />
 	<?= form_close(); ?>
-</div>

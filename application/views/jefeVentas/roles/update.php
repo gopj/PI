@@ -1,7 +1,7 @@
-<div class="span8 offset4">
+
 	<h2>Modificar Rol</h2>
 
-	<?php echo form_open('admin/roles/update/'. $rol['idRol']);
+	<?php echo form_open('jefeVentas/roles/update/'. $rol['idRol']);
 	$activo = $rol['dia'];
 	if ($activo == '1'){
 		$activo="<option value='1' selected>Lunes</option><option value='2'>Martes</option><option value='3'>Miercoles</option><option value='4'>Jueves</option><option value='5'>Viernes</option><option value='6'>Sabado</option>";
@@ -39,4 +39,3 @@
 
 		<input type="submit" name="save" value="Guardar" class="btn btn-success" />
 	<?php echo form_close(); ?>
-</div>

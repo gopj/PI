@@ -29,7 +29,7 @@ class Login extends My_Controller {
 						redirect("chofer-vendedor/index/");
 						break;
 					case '3':
-						redirect("gefeVentas/index");
+						redirect("jefeVentas/index");
 						break;
 					case '4':
 						redirect("inventario/index/");

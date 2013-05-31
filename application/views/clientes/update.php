@@ -35,6 +35,14 @@
 			</select>
 		</div>
 
+		<label class="control-label" for="clave">Asignado:</label>
+		<div class="controls">
+			<select name="asignado">
+				<option value='1'>Si</option>
+		 		<option value='0'>No</option>
+			</select>
+		</div>
+
 		<br /> <br />
 
 		<input type="submit" name="save" value="Guardar" class="btn btn-success" />

@@ -1,6 +1,6 @@
 <h2>Rutas</h2>
 <p>
-	<?=anchor( "admin/rutas/create/" ,"Agregar" ,"class='btn btn-primary'" )?>
+	<?=anchor( "jefeVentas/rutas/create/" ,"Agregar" ,"class='btn btn-primary'" )?>
 </p>
 <table class="table table-striped table-bordered" >
 	<thead>
@@ -22,8 +22,8 @@
 					<td>".$ruta->nombreUser."</td>
 					<td>".$ruta->nombre."</td>
 					<td>
-						" . anchor( "admin/rutas/update/".$ruta->idRuta , "Editar" , "class='btn btn-primary'" ) . "
-						" . anchor( "admin/rutas/delete/".$ruta->idRuta , "Eliminar" , "class='btn btn-danger'" ) . "
+						" . anchor( "jefeVentas/rutas/update/".$ruta->idRuta , "Editar" , "class='btn btn-primary'" ) . "
+						" . anchor( "jefeVentas/rutas/delete/".$ruta->idRuta , "Eliminar" , "class='btn btn-danger'" ) . "
 					</td>
 				</tr>
 			";

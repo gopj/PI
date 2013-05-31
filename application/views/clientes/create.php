@@ -1,7 +1,7 @@
 <div class="span8 offset4">
 	<h2>Crear Cliente</h2>
 
-	<?php echo form_open('admin/clientes/create'); ?>
+	<?php echo form_open('admin/clientes/create');?>
 
 		<label class="control-label" for="nombre">Nombre Cliente:</label>
 		<div class="controls">
@@ -17,6 +17,8 @@
 		<div class="controls">
 			<?=form_dropdown('idMunicipio', $perfiles, @$perfil['nombre']);?>
 		</div>
+
+		
 
 		<br /> <br />
 

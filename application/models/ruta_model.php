@@ -24,10 +24,18 @@ class Ruta_model extends My_Model {
 	public function getRutas(){
 
 		$query = $this->db->query('
-			select ru.idRuta as idRuta, ru.nombre_ruta as nombre, usr.nombre_usuario as nombreUser 
-			from usuarios as usr, rutas as ru
+			select 
+				ru.idRuta as idRuta, 
+				ru.nombre_ruta as nombreRuta, 
+				usr.nombre_usuario as nombreUser,
+				mu.nombre as nombre 
+			from 
+				usuarios as usr, 
+				rutas as ru, 
+				municipios as mu
 			where 
-			ru.idUsuario = usr.idUsuario;
+				ru.idUsuario = usr.idUsuario and
+				ru.idMunicipio = mu.idMunicipio;
 		');
 		return $query;
 	}

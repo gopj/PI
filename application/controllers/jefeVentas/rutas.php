@@ -4,18 +4,23 @@ class Rutas extends My_Controller {
 
 	function __construct() {
 		parent::__construct(true);
-
+		$this->load->library('menu');
 		$this->load->model("ruta_model","ruta");
 		$this->load->model("user_model","user");
 		$this->load->model("municipio_model","municipio");
-		$this->setLayout('admin');
+		$this->setLayout('jefeVentas');
 	}
 
 	public function index($pag = null){
 		
 		$data['rutas'] = $this->ruta->getRutas();	
+		$data['sidebar'] = $this -> menu -> construirSidebar(
+		array('Rutas', 'Roles', 'Asignar Clientes a un rol'), 
+		'',
+		'jefeVentas',
+		array('rutas','roles','clienteRol'));
 
-		$this->load->view('rutas/index', $data);
+		$this->load->view('jefeVentas/rutas/index', $data);
 	}
 
 	public function create($id = null){
@@ -27,21 +32,27 @@ class Rutas extends My_Controller {
 			$ruta['idUsuario'] = $this->input->post("chofer");
 			if ( $ruta->save() ){
 
-				redirect('admin/rutas');
+				redirect('jefeVentas/rutas');
 
 			}
 		}
 
 		$data['mun'] = $this->municipio->getMunicipios();
 		$data['nombres'] = $this->user->getChoferes();	
-		$this->load->view("rutas/create", $data);
+		$data['rutas'] = $this->ruta->getRutas();	
+		$data['sidebar'] = $this -> menu -> construirSidebar(
+		array('Rutas', 'Roles', 'Asignar Clientes a un rol'), 
+		'',
+		'jefeVentas',
+		array('rutas','roles','clienteRol'));
+		$this->load->view("jefeVentas/rutas/create", $data);
 	}
 
 	public function update($id = null){
 		//municipio
 		$data['ruta'] = $this->ruta->getByIdAsArray($id);
 		if (is_null($id)){
-			redirect("admin/rutas");
+			redirect("jefeVentas/rutas");
 		}
 		if ( $this->input->post() ){
 
@@ -53,13 +64,19 @@ class Rutas extends My_Controller {
 
 			if ( $r->save() ){
 
-				redirect('admin/rutas');
+				redirect('jefeVentas/rutas');
 
 			}
 		}
 		$data['mun'] = $this->municipio->getMunicipios();
 		$data['nombres'] = $this->user->getChoferes();	
-		$this->load->view("rutas/update", $data);
+		$data['rutas'] = $this->ruta->getRutas();	
+		$data['sidebar'] = $this -> menu -> construirSidebar(
+		array('Rutas', 'Roles', 'Asignar Clientes a un rol'), 
+		'',
+		'jefeVentas',
+		array('rutas','roles','clienteRol'));
+		$this->load->view("jefeVentas/rutas/update", $data);
 	}
 
 	public function delete($id = null){
@@ -67,6 +84,6 @@ class Rutas extends My_Controller {
 		if ( $this->ruta->delete() ){
 
 		}
-		redirect("admin/rutas");
+		redirect("jefeVentas/rutas");
 	}	
 }

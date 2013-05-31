@@ -1,7 +1,7 @@
-<div class="span8 offset4">
+
 	<h2>Crear Rol</h2>
 
-	<?php echo form_open('admin/roles/create'); ?>
+	<?php echo form_open('jefeVentas/roles/create'); ?>
 
 		<label class="control-label" for="roln">Nombre rol:</label>
 		<div class="controls">
@@ -23,4 +23,3 @@
 
 		<input type="submit" name="save" value="Guardar" class="btn btn-success" />
 	<?php echo form_close(); ?>
-</div>

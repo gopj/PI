@@ -26,6 +26,7 @@ class Clientes extends My_Controller {
 			$client['nombre'] = $this->input->post("nombre");
 			$client['direccion'] = $this->input->post("direccion");
 			$client['idMunicipio'] = $this->input->post("idMunicipio");
+			$client['asignado'] = 0;
 
 			if ( $client->save() ){
 				redirect('admin/clientes');
@@ -57,6 +58,8 @@ class Clientes extends My_Controller {
 			$client['direccion'] = $this->input->post("direccion");
 			$client['idMunicipio'] = $this->input->post("idMunicipio");
 			$client['status'] = $this->input->post("estado");
+			$client['asignado'] = $this->input->post("asignado");
+			
 
 			if ( $client->save() ){
 				redirect('admin/clientes');

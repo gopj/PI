@@ -1,7 +1,7 @@
-<div class="span8 offset4">
+
 	<h2>Modificar Ruta</h2>
 
-	<?php echo form_open('admin/rutas/update/'. $ruta['idRuta']);?>
+	<?php echo form_open('jefeVentas/rutas/update/'. $ruta['idRuta']);?>
 		<label class="control-label" for="clave">Municipio:</label>
 				<div class="controls">
 
@@ -20,7 +20,6 @@
 			?>
 			
 		</div>
-
 		<label class="control-label" for="nombre_ruta1">Nombre ruta:</label>
 		<div class="controls">
 			<?=form_input('nombre_ruta', $ruta['nombre_ruta'], '  id="nombre_ruta1" placeholder="Nombre ruta"')?> <br />
@@ -47,4 +46,3 @@
 
 		<input type="submit" name="save" value="Guardar" class="btn btn-success" />
 	<?php echo form_close(); ?>
-</div>
