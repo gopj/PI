@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2013 a las 00:08:26
--- Versión del servidor: 5.5.27
--- Versión de PHP: 5.4.7
+-- Servidor: localhost
+-- Tiempo de generación: 01-06-2013 a las 00:26:12
+-- Versión del servidor: 5.5.16
+-- Versión de PHP: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -92,16 +92,6 @@ CREATE TABLE IF NOT EXISTS `detalle_salidas_entradas` (
   KEY `idSalidas_entradas` (`idSalidas_entradas`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
---
--- Volcado de datos para la tabla `detalle_salidas_entradas`
---
-
-INSERT INTO `detalle_salidas_entradas` (`idDetalle_salidas_entradas`, `idProducto`, `cantidadLleva`, `cantidadRegreso`, `idSalidas_entradas`) VALUES
-(1, 1, 31, NULL, 1),
-(2, 3, 25, NULL, 1),
-(3, 7, 41, NULL, 1),
-(4, 8, 19, NULL, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -117,14 +107,6 @@ CREATE TABLE IF NOT EXISTS `mermas` (
   KEY `idProducto` (`idProducto`),
   KEY `idSalidas_entradas` (`idSalidas_entradas`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
-
---
--- Volcado de datos para la tabla `mermas`
---
-
-INSERT INTO `mermas` (`idMerma`, `idProducto`, `cantidad`, `idSalidas_entradas`) VALUES
-(33, 6, 1, 1),
-(34, 9, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -269,16 +251,10 @@ CREATE TABLE IF NOT EXISTS `salidas_entradas` (
   `idSalidas_entradas` int(11) NOT NULL AUTO_INCREMENT,
   `idUsuario` int(11) NOT NULL,
   `fecha` date NOT NULL,
+  `status` int(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idSalidas_entradas`),
   KEY `idUsuario` (`idUsuario`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- Volcado de datos para la tabla `salidas_entradas`
---
-
-INSERT INTO `salidas_entradas` (`idSalidas_entradas`, `idUsuario`, `fecha`) VALUES
-(1, 3, '2013-05-29');
 
 -- --------------------------------------------------------
 
