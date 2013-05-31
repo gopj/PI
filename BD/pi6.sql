@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 29-05-2013 a las 20:26:59
--- Versión del servidor: 5.5.16
--- Versión de PHP: 5.3.8
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 01-06-2013 a las 00:08:26
+-- Versión del servidor: 5.5.27
+-- Versión de PHP: 5.4.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -61,26 +61,19 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `idMunicipio` int(11) NOT NULL,
   `status` int(2) NOT NULL DEFAULT '1',
   `dia_visita` int(2) NOT NULL,
+  `asignado` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idCliente`),
   KEY `idMunicipio` (`idMunicipio`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`idCliente`, `nombre`, `direccion`, `idMunicipio`, `status`, `dia_visita`) VALUES
-(8, 'Juan', 'Av. Siempre viva #123', 3, 1, 1),
-(9, 'Geronimo Vazquez', 'Av. los arboles grandotes', 7, 1, 2),
-(10, 'Carlos Ulibarri', 'Av. Los robles', 1, 1, 3),
-(11, 'assa', 'sddd', 1, 1, 4),
-(12, 'bnn', 'bnm98', 2, 1, 5),
-(13, 'moy', 'moy 218', 5, 1, 6),
-(14, 'chucho', 'molls 744', 8, 1, 7),
-(15, 'chucho', 'molls 744', 8, 1, 1),
-(27, 'otro cliente', 'miramam 22', 2, 1, 2),
-(28, 'as', 's', 2, 1, 3),
-(30, 'angelon', 'angelon 2909', 1, 1, 1);
+INSERT INTO `clientes` (`idCliente`, `nombre`, `direccion`, `idMunicipio`, `status`, `dia_visita`, `asignado`) VALUES
+(31, 'angel', 'Calle antorcha del campesino', 1, 0, 2, 0),
+(32, 'Vict5or', 'swdf', 1, 1, 1, 0),
+(33, 'santa', 'sdfsd', 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -107,7 +100,7 @@ INSERT INTO `detalle_salidas_entradas` (`idDetalle_salidas_entradas`, `idProduct
 (1, 1, 31, NULL, 1),
 (2, 3, 25, NULL, 1),
 (3, 7, 41, NULL, 1),
-(4, 8, 20, NULL, 1);
+(4, 8, 19, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -123,14 +116,15 @@ CREATE TABLE IF NOT EXISTS `mermas` (
   PRIMARY KEY (`idMerma`),
   KEY `idProducto` (`idProducto`),
   KEY `idSalidas_entradas` (`idSalidas_entradas`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=35 ;
 
 --
 -- Volcado de datos para la tabla `mermas`
 --
 
 INSERT INTO `mermas` (`idMerma`, `idProducto`, `cantidad`, `idSalidas_entradas`) VALUES
-(33, 6, 1, 1);
+(33, 6, 1, 1),
+(34, 9, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -176,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `cantidad` int(11) NOT NULL,
   `fecha_caducidad` date NOT NULL,
   PRIMARY KEY (`idProducto`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -190,7 +184,8 @@ INSERT INTO `productos` (`idProducto`, `nombre_producto`, `presentacion`, `preci
 (5, 'Churrumaiz', '35', 2, 4, 1, 432, '2015-05-26'),
 (6, 'doritos', '40', 6.5, 7, 1, 10, '2013-05-02'),
 (7, 'doritos', '40', 6.5, 7, 1, 287, '2013-09-27'),
-(8, 'doritos', '40', 6.5, 7, 1, 80, '2013-07-25');
+(8, 'doritos', '40', 6.5, 7, 1, 80, '2013-07-25'),
+(9, 'fa', '343', 3, 3, 1, 23, '2013-06-11');
 
 -- --------------------------------------------------------
 
@@ -204,18 +199,15 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `dia` varchar(50) NOT NULL,
   PRIMARY KEY (`idRol`),
   KEY `idRuta` (`idRuta`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Volcado de datos para la tabla `roles`
 --
 
 INSERT INTO `roles` (`idRol`, `idRuta`, `dia`) VALUES
-(4, 3, '1'),
-(5, 3, '2'),
-(6, 3, '3'),
-(7, 3, '4'),
-(8, 3, '5');
+(14, 5, '1'),
+(15, 6, '2');
 
 -- --------------------------------------------------------
 
@@ -230,19 +222,15 @@ CREATE TABLE IF NOT EXISTS `rol_clientes` (
   PRIMARY KEY (`idRol_cliente`),
   KEY `idRol` (`idRol`),
   KEY `idCliente` (`idCliente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
 
 --
 -- Volcado de datos para la tabla `rol_clientes`
 --
 
 INSERT INTO `rol_clientes` (`idRol_cliente`, `idRol`, `idCliente`) VALUES
-(1, 4, 8),
-(2, 4, 9),
-(3, 4, 10),
-(4, 4, 15),
-(14, 4, 27),
-(15, 4, 28);
+(20, 14, 32),
+(21, 14, 33);
 
 -- --------------------------------------------------------
 
@@ -254,17 +242,22 @@ CREATE TABLE IF NOT EXISTS `rutas` (
   `idRuta` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_ruta` varchar(45) NOT NULL,
   `idUsuario` int(11) NOT NULL,
+  `idMunicipio` int(11) NOT NULL,
   PRIMARY KEY (`idRuta`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre_ruta`),
-  KEY `idUsuario` (`idUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+  KEY `idUsuario` (`idUsuario`),
+  KEY `idMunicipio` (`idMunicipio`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `rutas`
 --
 
-INSERT INTO `rutas` (`idRuta`, `nombre_ruta`, `idUsuario`) VALUES
-(3, 'Ruta 1', 3);
+INSERT INTO `rutas` (`idRuta`, `nombre_ruta`, `idUsuario`, `idMunicipio`) VALUES
+(5, 'Colonia Lomas de vista hermosa', 3, 1),
+(6, 'Colonia Centenario 2', 3, 5),
+(7, 'Colonia feliz', 3, 1),
+(8, 'Colonia miramar 2', 3, 2);
 
 -- --------------------------------------------------------
 
@@ -307,8 +300,8 @@ CREATE TABLE IF NOT EXISTS `tipo_usuarios` (
 INSERT INTO `tipo_usuarios` (`idTipo_usuario`, `nombre`) VALUES
 (1, 'Admin'),
 (2, 'Chofer-vendedor'),
-(3, 'Gefe de ventas'),
 (5, 'Gerente de ventas'),
+(3, 'Jefe de ventas'),
 (4, 'Usuario de inventario');
 
 -- --------------------------------------------------------
@@ -327,7 +320,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   UNIQUE KEY `nombre_usuario_UNIQUE` (`nombre_usuario`),
   KEY `idTipo_usuario` (`idTipo_usuario`),
   KEY `idTipo_usuario_2` (`idTipo_usuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -336,7 +329,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 INSERT INTO `usuarios` (`idUsuario`, `idTipo_usuario`, `nombre_usuario`, `clave`, `status`) VALUES
 (1, 1, 'chuy', 'c7432b40153b80353dd6f7524416472c', 1),
 (2, 2, 'vic', 'vic', 1),
-(3, 2, 'victor', 'ffc150a160d37e92012c196b6af4160d', 1);
+(3, 2, 'victor', 'ffc150a160d37e92012c196b6af4160d', 1),
+(4, 5, 'juan', 'a94652aa97c7211ba8954dd15a3cf838', 1);
 
 -- --------------------------------------------------------
 
@@ -353,14 +347,7 @@ CREATE TABLE IF NOT EXISTS `ventas` (
   PRIMARY KEY (`idVenta`),
   KEY `idUsuario` (`idUsuario`),
   KEY `idCliente` (`idCliente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
-
---
--- Volcado de datos para la tabla `ventas`
---
-
-INSERT INTO `ventas` (`idVenta`, `idUsuario`, `idCliente`, `fecha_venta`, `total`) VALUES
-(48, 3, 9, '2013-05-29', 5);
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=60 ;
 
 -- --------------------------------------------------------
 
@@ -376,14 +363,7 @@ CREATE TABLE IF NOT EXISTS `vta_detalles` (
   PRIMARY KEY (`idVtaDetalle`),
   KEY `idVenta` (`idVenta`),
   KEY `idProducto` (`idProducto`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
-
---
--- Volcado de datos para la tabla `vta_detalles`
---
-
-INSERT INTO `vta_detalles` (`idVtaDetalle`, `idVenta`, `idProducto`, `cantidad`) VALUES
-(51, 48, 1, 1);
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
 
 --
 -- Restricciones para tablas volcadas
@@ -421,6 +401,13 @@ ALTER TABLE `roles`
 ALTER TABLE `rol_clientes`
   ADD CONSTRAINT `rol_clientes_ibfk_1` FOREIGN KEY (`idRol`) REFERENCES `roles` (`idRol`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `rol_clientes_ibfk_2` FOREIGN KEY (`idCliente`) REFERENCES `clientes` (`idCliente`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `rutas`
+--
+ALTER TABLE `rutas`
+  ADD CONSTRAINT `rutas_ibfk_2` FOREIGN KEY (`idMunicipio`) REFERENCES `municipios` (`idMunicipio`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rutas_ibfk_3` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `salidas_entradas`
