@@ -16,9 +16,9 @@ $.extend( $.fn.dataTableExt.oStdClasses, {
 </p>
 
 
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered dataTable" id="example" aria-describedby="example_info" width="100%">
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered dataTable" id="example" aria-describedby="example_info">
 	<thead>
-		<tr>
+		<tr role="row">
 			<th width="30">Id</th>
 			<th>Nombre</th>
 			<th width="80">Presentaci&oacute;n</th>
@@ -27,7 +27,7 @@ $.extend( $.fn.dataTableExt.oStdClasses, {
 			<th width="50">Estado del producto</th>
 			<th width="80">Cantidad</th>
 			<th width="80">Fecha de caducidad</th>
-			<th width="135">Opciones</th>
+			<th width="135" >Opciones</th>
 		</tr>
 	</thead>
 
