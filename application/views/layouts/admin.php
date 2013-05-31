@@ -8,9 +8,13 @@
 	<?php echo link_tag( 'css/bootstrap.css' ) ?>
 	<?php echo link_tag( 'css/bootstrap.min.css' ) ?>
 	<?php echo link_tag( 'css/prettify.css' ) ?>
+	
+	<?php echo link_tag( 'css/dataTables/jquery.dataTables.css' ) ?>
+
 
 	<script src="<?=base_url('js/jquery-1.9.0.js')?>"> </script>
 	<script src="<?=base_url('js/bootstrap.js')?>"> </script>
+	<script src="<?=base_url('js/jquery.dataTables.js')?>"> </script>
 </head>
 <body>
 <div class="navbar navbar-fixed-top navbar-inverse" style="position: static;">
