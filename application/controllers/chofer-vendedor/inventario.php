@@ -16,10 +16,10 @@ class Inventario extends My_Controller {
 
 		//construimos nuestro sidebar
 		$data['sidebar'] = $this -> menu -> construirSidebar(
-			array('Ver producto'), //opciones sidebar
+			array(''), //opciones sidebar
 			'', //opcion seleccionada
 			'chofer-vendedor/inventario', //submenu actual, en este caso inventario
-			array('verProducto'));
+			array(''));
 
 		$data['usuario'] = $this->session->userdata['user']['idUsuario'];
 		

@@ -20,7 +20,7 @@ class Ventas_model extends My_Model {
 				usuarios as u on  u.idUsuario = v.idUsuario 
 			INNER JOIN 
 				clientes as c on c.idCliente = v.idCliente
-			ORDER by idVenta;
+			ORDER by fecha;
 		');
 		//si hay ventas, regresamos los resultados
 		if ($query -> num_rows() > 0) {
@@ -134,13 +134,13 @@ class Ventas_model extends My_Model {
 		
 		//restamos la cantidad actual menos la que se vendio
 		if($cantidadNueva > $canActual){
-			redirect('chofer-vendedor/ventas/crearVenta/llnlknlk');
+			redirect('chofer-vendedor/ventas/crearVenta');
 		}else{
 			$cantidadNueva = $canActual - $cantidadNueva;
 		}
 		
 		//modificamos la actual por la cantidad nueva  
-		$this->db->set('cantidadLleva', $cantidadNueva );
+		$this->db->set('cantidadRegreso', $cantidadNueva );
 		$this->db->where('idProducto', $idProducto);
 		$this->db->update('detalle_salidas_entradas');
 	}
@@ -188,10 +188,10 @@ class Ventas_model extends My_Model {
 					inner join 
 						productos as p on p.idProducto = dse.idProducto 
 					where 
-						p.nombre_producto = 'doritos' and 
-						p.presentacion = 40 and
-						p.precio_fabrica = 6.5 and 
-						p.precio_publico = 7 and 
+						p.nombre_producto = ". $prodCaducado->nombre_producto ." and 
+						p.presentacion = ". $prodCaducado->presentacion ." and
+						p.precio_fabrica = ". $prodCaducado->precio_fabrica ." and 
+						p.precio_publico = ". $prodCaducado->precio_publico ." and 
 						p.status = 1 and 
 						p.fecha_caducidad > (SELECT CURRENT_DATE())
 						limit 1; 
@@ -214,7 +214,7 @@ class Ventas_model extends My_Model {
 							$this->db->query("
 								UPDATE 
 									detalle_salidas_entradas 
-									SET cantidadLleva = ". $cantidadNueva ."
+									SET cantidadRegreso = ". $cantidadNueva ."
 								WHERE idProducto = ". $idProducto .";
 							");
 						}

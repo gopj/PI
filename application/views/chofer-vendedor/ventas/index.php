@@ -42,7 +42,6 @@
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
-			<th>idVenta</th>
 			<th>Producto</th>
 			<th>Presentacion</th>
 			<th>Caducidad</th>
@@ -57,7 +56,6 @@
 		foreach ($detalleVenta->result() as $detalle): 
 			?>
 				<tr>
-					<td><?= $detalle->idVenta; ?></a></td>
 					<td><?= $detalle->producto; ?></td>
 					<td><?= $detalle->presentacion . " gr"; ?></td>
 					<td><?= $detalle->caducidad; ?></td>

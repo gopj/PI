@@ -16,7 +16,8 @@ class Inventario_model extends My_Model {
 			    p.precio_publico,
 			    p.status,
 			    p.fecha_caducidad,
-			    dse.cantidadLleva as cantidad 
+			    dse.cantidadLleva as cantidadLleva,
+			    dse.cantidadRegreso as cantidadRegreso 
 			FROM
 			    detalle_salidas_entradas as dse
 			INNER JOIN 
@@ -25,7 +26,7 @@ class Inventario_model extends My_Model {
 			    productos as p ON dse.idProducto = p.idProducto 
 			WHERE 
 			    se.idUsuario = ". $data['usuario'] ." 
-			    /*and se.fecha =(SELECT CURRENT_DATE())*/
+			    and se.fecha =(SELECT CURRENT_DATE())
 			ORDER BY p.nombre_producto
 		");
 		//si hay productos, regresamos los resultados

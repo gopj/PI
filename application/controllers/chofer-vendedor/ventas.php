@@ -6,6 +6,8 @@ class Ventas extends My_Controller {
 		parent::__construct(true);
 		//cargamos la libreria
 		$this -> load -> library('menu');
+		$this->load->library('table');
+
 		//cargamos nuestros modelos 
 		$this -> load -> model('chofer-vendedor/ventas_model', 'ventas');
 		$this -> load -> model('chofer-vendedor/inventario_model', 'inventario');
@@ -73,21 +75,13 @@ class Ventas extends My_Controller {
 		if (isset($_POST['productos']) && isset($_POST['cliente']) && 
 			isset($_POST['cantidadComprar'])) {
 			
-			$this->load->model('chofer-vendedor/ventas_model', 'ventas');
-
 			//datos sobre el detalle de la venta 
-			$arrayProductos = $_POST["productos"];
-			$arrayCantidad = $_POST["cantidadComprar"]; 
-
-			//productos caducados 
-			$arrayProductosCad = $_POST["productosT"];
-			$arrayCantidadCad = $_POST["cantidadCaducados"]; 
-
-			//var_dump($arrayProductosCad);
+			$arrayProductos = $this->input->post('productos');
+			$arrayCantidad = $this->input->post('cantidadComprar'); 
 
 			//datos sobre la venta	
 			$usuario = $this->session->userdata['user']['idUsuario'];
-			$cliente = $_POST["cliente"];
+			$cliente = $this->input->post("cliente");
 			$fechaVenta = date( 'Y-m-d');
 			$totalVenta = $this->ventas->obtenerTotalProductos($arrayProductos,$arrayCantidad);
 
@@ -97,12 +91,18 @@ class Ventas extends My_Controller {
 			//agregamos los detalles de venta 
 			$this->ventas->agregarDetalleVenta($idVenta, $arrayProductos, $arrayCantidad);
 
-			//obtenemos la salida del chofer 
-			$idSalida = $this->ventas->getSalida($usuario,$fechaVenta);
-			//agregamos los productos caducados
-			
-			$this->ventas->agregarMerma($arrayProductosCad, $arrayCantidadCad,$idSalida);
-						
+			if (isset($_POST['productosT']) && isset($_POST['cantidadCaducados'])){
+				//productos caducados 
+				$arrayProductosCad = $this->input->post('productosT');
+				$arrayCantidadCad = $this->input->post('cantidadCaducados'); 
+
+				//obtenemos la salida del chofer 
+				$idSalida = $this->ventas->getSalida($usuario,$fechaVenta);
+				//agregamos los productos caducados
+				
+				$this->ventas->agregarMerma($arrayProductosCad, $arrayCantidadCad,$idSalida);
+			}
+				
 			//redireccionamos a ventas 
 			redirect('chofer-vendedor/ventas');
 
