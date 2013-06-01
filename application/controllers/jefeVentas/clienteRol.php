@@ -49,8 +49,22 @@ class ClienteRol extends My_Controller {
 		$this->load->view('jefeVentas/clienteRol/listar',$data);
 	}
 
-	public function delete($id = null){
-		redirect('jefeVentas/clienteRol');
+	public function delete($id = null){ 
+		$c = $this -> rolCliente -> getClienteIdFromRol_cliente($id);
+
+		$client = new Cliente_model();
+
+		$client['idCliente'] = $c;
+		$client['asignado'] = 0;
+		
+		if ( $client->save() ){
+			$this->rolCliente['idRol_cliente'] = $id;
+			if ( $this->rolCliente->delete() ){
+				redirect('jefeVentas/clienteRol');
+			}else{
+				redirect('jefeVentas/clienteRol');
+			}
+		}
 	}
 
 	
