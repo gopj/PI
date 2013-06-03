@@ -38,6 +38,9 @@ class Productos extends My_Controller {
 				redirect('admin/productos');
 			}
 		}
+
+		$this->setLayout('blank');
+
 		$this->load->view("productos/create");
 	}	
 
