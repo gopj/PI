@@ -1,6 +1,42 @@
+<script type="text/javascript">
+	$(function() {
+		$('[data-toggle="cCliente"]').click(function(e) {
+			e.preventDefault();
+
+			var href = $(this).attr('href');
+
+			if (href.indexOf('#') == 0) {
+				$(href).modal('open');
+			} else {
+				$.get(href, function(data) {
+					$(data).modal();
+				});
+			}
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	$(function() {
+		$('[data-toggle="update"]').click(function(e) {
+			e.preventDefault();
+
+			var href = $(this).attr('href');
+
+			if (href.indexOf('#') == 0) {
+				$(href).modal('open');
+			} else {
+				$.get(href, function(data) {
+					$(data).modal();
+				});
+			}
+		});
+	});
+</script>
+
 <h2>Clientes</h2>
 <p>
-	<?=anchor( "admin/clientes/create/" ,"Agregar" ,"class='btn btn-primary'" )?>
+	<?=anchor( "admin/clientes/create/" ,"Agregar" ,"data-toggle='cCliente' class='btn btn-primary'" )?>
 </p>
 <table class="table table-striped table-bordered" >
 	<thead>
@@ -33,11 +69,25 @@
 					<td>".$val."</td>					
 					<td>".$a."</td>					
 					<td>
-						" . anchor( "admin/clientes/update/".$cliente->idCliente , "Editar" , "class='btn btn-primary'" ) . "
-						" . anchor( "admin/clientes/delete/".$cliente->idCliente , "Eliminar" , "class='btn btn-danger'" ) . "
+						" . anchor( "admin/clientes/update/".$cliente->idCliente , "Editar" , "data-toggle='update' class='btn btn-primary'" ) . "
+						" . anchor( "#dDelete" , "Eliminar" , "class='btn btn-danger' data-toggle='modal'" ) . "
 					</td>
 				</tr>
 			";
 		}
 	?>
 </table>
+
+<div id="dDelete" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Eliminar</h3>
+	</div>
+	<div class="modal-body">
+		<p>¿Estas seguro que deseas eliminar el cliente?</p>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
+		<?php echo anchor( "admin/productos/delete/".$cliente->idCliente, "Eliminar" , "class='btn btn-danger'" ); ?>
+	</div>
+</div>

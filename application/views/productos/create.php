@@ -44,6 +44,6 @@
 				<input type="submit" name="save" value="Guardar" class="btn btn-success" />
 				<?php echo anchor("admin/productos", "Cancelar", 'class="btn"'); ?>
 			</div>
-		</div>
+		<div>
 	<?php echo form_close(); ?>
 </div>
