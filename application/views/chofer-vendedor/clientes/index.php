@@ -3,7 +3,7 @@
 	<table class="table table-hover table-bordered">
 		<thead>
 			<tr>
-				<th>Id</th>
+				<th>N°</th>
 				<th>Nombre</th>
 				<th>Dirección</th>
 				<th>Municipio</th>
@@ -30,19 +30,8 @@
 				<?php 
 			endforeach;
 		else:
-			echo "<p>Error en la aplicacion</p>";
+			echo "<p class='alert'>Acutalmente no tiene asignados clientes</p>";
 		endif;
 	?>
 		</tbody>
 	</table>
-
-<script type="text/javascript">
-	function getDia(intDia){
-		var dia=intDia;
-		if(dia==2){
-			return "Lunes";
-		}
-		
-	}
-
-</script>

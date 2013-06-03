@@ -17,7 +17,8 @@ class Cliente_model extends My_Model{
 				cl.direccion as direccion, 
 				mu.nombre as idMunicipio , 
 				cl.status as status,
-				cl.asignado as asignado
+				cl.asignado as asignado,
+				cl.dia_visita as dia
 			from clientes as cl, municipios as mu
 			where 
 			cl.idMunicipio = mu.idMunicipio;

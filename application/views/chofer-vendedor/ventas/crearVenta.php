@@ -1,22 +1,7 @@
-<!--<?php
- /*if($incompleto==true):
- 	?>
- 	<div class="alert fade in">
-		<button type="button" class="close" data-dismiss="alert">
-			&times;
-		</button>
-		<h4 class="alert-heading">Porfavor!</h4>
-		<p>
-			Llena los campos correspondientes
-		</p>
-	</div>
-<?php
- endif;*/
-?>-->
 <?= form_open('chofer-vendedor/ventas/recibirdatosVenta', 'class="form-horizontal"'); ?>
  <div class="row-fluid">
 	 <div class="span12">
-	 	<h2>1.- Seleccionar cliente</h2>
+	 	<h3>1.- Seleccionar cliente</h3>
 	 	<div class="accordion" id="accordion2">
 			<div class="accordion-group">
 				<div class="accordion-heading">
@@ -28,7 +13,7 @@
 					 	<table class="table table-bordered table-striped table-hover">
 							<thead>
 								<tr>
-									<th>Id</th>
+									<th>N°</th>
 									<th>Nombre</th>
 									<th>Direccion</th>
 								</tr>
@@ -38,11 +23,15 @@
 							//vemos si ventas contiene algo
 							if($clientes):
 								foreach ($clientes->result() as $cliente): 
+									if($cliente->status == "1"): 
+										echo "<tr class='success'>";
+									else:
+										echo "<tr class='error'>"; 
+									endif;
 									?>
-										<tr disabled>
 											<td>
 													<?= $cliente->idCliente; ?>
-													<input type="radio" name="cliente" value="<?= $cliente->idCliente; ?>">
+													<input type="radio" title="Seleccionar" name="cliente" value="<?= $cliente->idCliente; ?>">
 												</a>
 											</td>
 											<td><?= $cliente->nombre; ?></td>
@@ -51,7 +40,7 @@
 									<?php 
 								endforeach;
 							else:
-								echo "<p>Actualmente no tiene asignados clientes</p>";
+								echo "<p class='alert'>Actualmente no tiene asignados clientes</p>";
 							endif;
 						?>
 							</tbody>
@@ -64,7 +53,7 @@
  </div>
  <div class="row-fluid">
 	 <div class="span12">
-		<h2>2.- Productos a comprar</h2>
+		<h3>2.- Productos a comprar</h3>
 		<div class="accordion-group">
 			<div class="accordion-heading">
 				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
@@ -75,7 +64,7 @@
 					<table class="table table-bordered table-striped table-hover">
 						<thead>
 							<tr>
-								<th>Id</th>
+								<th>N°</th>
 								<th>Producto</th>
 								<th>Presentacion</th>
 								<th>Caducidad</th>
@@ -90,7 +79,6 @@
 						if($productos):
 							$i = 1;
 							foreach ($productos->result() as $producto): 
-								
 								if($producto->status == "1"): 
 									echo "<tr class='success'>";
 								else:
@@ -99,7 +87,7 @@
 								?>
 										<td>
 											<?= $producto->idProducto; ?>
-											<input type="checkbox" name="productos[]" id="check<?=$i?>" onclick="habilitarInput(check<?=$i?>,cantidad<?=$i?>)" value="<?= $producto->idProducto; ?>">
+											<input type="checkbox" title="Agregar" name="productos[]" id="check<?=$i?>" onclick="habilitarInput(check<?=$i?>,cantidad<?=$i?>)" value="<?= $producto->idProducto; ?>">
 										</td>
 										<td>
 											<?= $producto->nombre_producto; ?>
@@ -114,7 +102,8 @@
 								$i++;
 							endforeach;
 						else:
-							echo "<p>Actualmente no tiene asignados productos</p>";
+							echo "<p class='alert'>Actualmente no tiene asignados productos</p>";
+						
 						endif;
 					?>	
 							<!--<tr>
@@ -155,7 +144,7 @@
 
 <div class="row-fluid">
 	<div class="span12">
-		<h2>3.- Agregar producto caducado</h2>
+		<h3>3.- Agregar producto caducado</h3>
 		<div class="accordion-group">
 			<div class="accordion-heading">
 				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
@@ -166,7 +155,7 @@
 					<table class="table table-bordered table-striped table-hover">
 						<thead>
 							<tr>
-								<th>Id</th>
+								<th>N°</th>
 								<th>Producto</th>
 								<th>Presentacion</th>
 								<th>Precio</th>
@@ -188,7 +177,7 @@
 								?>
 										<td>
 											<?= $producto->idProducto; ?>
-											<input type="checkbox" name="productosT[]" id="checkT<?=$i?>" 
+											<input type="checkbox" title="Agregar" name="productosT[]" id="checkT<?=$i?>" 
 											onclick="habilitarInput(checkT<?=$i?>,cantidadT<?=$i?>)" 
 											value="<?= $producto->idProducto; ?>">
 										</td>
@@ -208,7 +197,7 @@
 								$i++;
 							endforeach;
 						else:
-							echo "<p>Actualmente no hay productos caducados en inventario</p>";
+							echo "<p class='alert'>Actualmente no hay productos caducados en inventario</p>";
 						endif;
 					?>
 						</tbody>

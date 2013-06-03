@@ -11,7 +11,7 @@ class Ventas extends My_Controller {
 		//cargamos nuestros modelos 
 		$this -> load -> model('chofer-vendedor/ventas_model', 'ventas');
 		$this -> load -> model('chofer-vendedor/inventario_model', 'inventario');
-		$this -> load -> model('cliente_model', 'cliente');
+		$this -> load -> model('chofer-vendedor/clientes_model', 'cliente');
 
 		$this->setLayout('chofer_vendedor');
 
@@ -43,21 +43,19 @@ class Ventas extends My_Controller {
 		$this->load->view('chofer-vendedor/ventas/index', $data);
 
 	}
-
 	public function crearVenta() {
 		$data['sidebar'] = $this -> menu -> construirSidebar(
 			array('Crear venta'), //opciones sidebar
 			'Crear venta', //opcion seleccionada
 			'chofer-vendedor/ventas', //submenu actual, en este caso ventas
 			array('crearVenta'));
-		/*
-		*/
-		//obtenemos los clientes 
-		$data['clientes'] = $this -> cliente -> getClientes();
 
 		//datos del usuario actual, y fecha
 		$data['usuario'] = $this->session->userdata['user']['idUsuario'];
 		$data['fecha'] = date( 'Y-m-d');
+
+		//obtenemos los clientes 
+		$data['clientes'] = $this->cliente->getClientesChofer($data);
 
 		//obtenemos los productos del chofer actual
 		$data['productos'] = $this -> inventario -> getProductosChofer($data);

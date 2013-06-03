@@ -5,19 +5,19 @@
 		  <div class="control-group">
 		    <label class="control-label" for="nombre">Nombre:</label>
 		    <div class="controls">
-		     <input style="height:30px" type="text" id="nombre" name="nombre" placeholder="Nombre">
+		     <input style="height:30px" required type="text" id="nombre" name="nombre" placeholder="Nombre">
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="direccion">Dirección:</label>
 		    <div class="controls">
-		      <input style="height:30px" type="text" id="direccion" name="direccion" placeholder="Direccion">
+		      <input style="height:30px" required type="text" id="direccion" name="direccion" placeholder="Direccion">
 		    </div>
 		  </div>
 		  <div class="control-group">
 		    <label class="control-label" for="diaVisita">Dia visita:</label>
 		    <div class="controls">
-		    	<select name="diaVisita">
+		    	<select name="diaVisita" >
 			  		<option value="1">Lunes</option>
 			  		<option value="2">Martes</option>
 			  		<option value="3">Miércoles</option>

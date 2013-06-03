@@ -11,7 +11,8 @@ class Clientes_model extends My_Model {
 		//obtenemos productos del chofer
 		$query = $this->db->query("
 			Select 
-				c.idCliente, 
+				c.idCliente,
+				c.status as status, 
 				c.nombre as nombre,
 				m.nombre as municipio, 
 				c.direccion  as direccion,

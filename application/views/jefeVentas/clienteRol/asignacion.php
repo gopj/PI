@@ -15,7 +15,8 @@
 	</thead>
 
 	<?php
-		foreach ($clietes ->result() as $Cliente) {
+	if($clientes){
+		foreach ($clientes ->result() as $Cliente) {
 			if ($Cliente->dia_visita == '1'){$dia = "Lunes";}
 			elseif ($Cliente->dia_visita == '2'){$dia = "Martes";}
 			elseif ($Cliente->dia_visita == '3'){$dia = "Miercoles";}
@@ -33,6 +34,9 @@
 				</tr>
 			";
 		}
+	}else{
+		echo "<p>Actualmente no hay candidatos para este rol</p>";
+	}
 	?>
 </table>
 <input type="submit" name="enviar" value="Asignar estos clientes" class="btn btn-success btn-large" />

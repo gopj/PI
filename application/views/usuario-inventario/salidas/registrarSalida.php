@@ -31,7 +31,7 @@
       <div class="accordion-group">
         <div class="accordion-heading">
           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2"
-           title="Selecciona los productos" href="#productos"> Productos a asignar </a>
+           title="Selecciona los productos" href="#productos" > Productos a asignar </a>
         </div>
         <div id="productos" class="accordion-body collapse">
           <div class="accordion-inner">
@@ -77,7 +77,7 @@
                   $i++;
                 endforeach;
               else:
-                echo "<p>Error en la aplicacion</p>";
+                echo "<p>No hay productos</p>";
               endif;
             ?>
               </tbody>

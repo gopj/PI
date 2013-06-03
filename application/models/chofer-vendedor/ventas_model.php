@@ -52,6 +52,7 @@ class Ventas_model extends My_Model {
 		');
 		if($query -> num_rows() > 0) {
 			return $query;
+			
 		}
 		else{
 			return false;	
@@ -145,6 +146,12 @@ class Ventas_model extends My_Model {
 		$this->db->update('detalle_salidas_entradas');
 	}
 
+	/**
+	 * [getSalida description]
+	 * @param  [type] $idUsuario [description]
+	 * @param  [type] $fecha     [description]
+	 * @return [type]            [description]
+	 */
 	public function getSalida($idUsuario, $fecha){
 		$query=$this->db->query("
 			select idSalidas_entradas 
@@ -208,7 +215,6 @@ class Ventas_model extends My_Model {
 						if($cantidadNueva > $canActual){
 							//la cantidad es mayor que la q se tiene en inventario
 							return false;
-							//redirect("chofer-vendedor/ventas/crearVenta/".$cantidadNueva."no");
 						}else{
 							$cantidadNueva = $canActual - $cantidadNueva;
 							$this->db->query("
@@ -220,12 +226,10 @@ class Ventas_model extends My_Model {
 						}
 					endforeach;
 				else: 
-					//redirect('chofer-vendedor/ventas/crearVenta/b');
 					return false;
 				endif;
 			endforeach;
 		else:
-			//redirect('chofer-vendedor/crearVenta/a');
 			return false;
 		endif;
 		
@@ -255,6 +259,8 @@ class Ventas_model extends My_Model {
 					$mul = $producto->precio_publico * $cantidad[$i]; 
 				}
 				$total = $total + $mul;
+			}else{
+				return false;
 			}
 		} 
 		return $total;

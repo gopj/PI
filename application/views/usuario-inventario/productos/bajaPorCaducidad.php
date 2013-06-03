@@ -13,13 +13,13 @@
 						<table class="table table-bordered table-striped table-hover">
 							<thead>
 								<tr>
-									<th>Id</th>
+									<th>N°</th>
 									<th>Producto</th>
 									<th>Presentacion</th>
 									<th>Caducidad</th>
 									<th>Precio</th>
 									<th>Cantidad actual</th>
-									<th>Eliminar</th>
+									<th>Baja</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -31,10 +31,12 @@
 									
 									if($producto->status == "1"): 
 										echo "<tr class='warning'>";
-										$bloqueado = 'false';
+										$bloqueado = "enable='true'";
+										
 									else:
 										echo "<tr class='error'>"; 
-										$bloqueado = 'true';
+										$bloqueado = "disabled='true'";
+										
 									endif;
 									?>
 											<td>
@@ -49,7 +51,7 @@
 											<td><?= $producto->cantidad; ?></td> 
 											<td>
 												<input type="checkbox" name="productos[]" id="check<?=$i?>" 
-												disabled="<?=$bloqueado;?>" 
+												<?=$bloqueado;?> 
 												value="<?= $producto->idProducto; ?>"/>
 											</td>
 										</tr>
@@ -66,7 +68,7 @@
 				</div>
 			</div>
 		</div>
-		<input type="submit" name="enviar" value="Eliminar" class="btn btn-success btn-large" />
+		<input type="submit" name="enviar" value="Dar baja" class="btn btn-success btn-large" />
 		<?= form_close(); ?>
 	</div>
 </div>

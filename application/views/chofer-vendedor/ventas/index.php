@@ -2,7 +2,7 @@
 <table class="table table-bordered table-hover">
 	<thead>
 		<tr>
-			<th>#</th>
+			<th>N°</th>
 			<th>Usuario</th>
 			<th>Cliente</th>
 			<th>Fecha</th>
@@ -30,7 +30,7 @@
 			<?php 
 		endforeach;
 	else:
-		echo "<p>Error en la aplicacion</p>";
+		echo "<p class='alert'>Actualmente no hay ventas realizadas</p>";
 	endif;
 ?>
 	</tbody>
@@ -65,7 +65,7 @@
 			<?php 
 		endforeach;
 	else:
-		echo "<p>Error en la aplicacion</p>";
+		echo "<p class='alert'>No hay detalle para esta venta</p>";
 	endif;
 ?>
 	</tbody>

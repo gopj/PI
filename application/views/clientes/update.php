@@ -39,8 +39,20 @@
 		<div class="controls">
 			<select name="asignado">
 				<option value='1'>Si</option>
-		 		<option value='0'>No</option>
+		 		<option value='0' selected>No</option>
 			</select>
+		</div>
+
+		<label class="control-label" for="dia_visita">Dia visita:</label>
+		<div class="controls">
+			<select name="dia_visita">
+				<option value='1'>Lunes</option>
+			 	<option value='2'>Martes</option>
+			 	<option value='3'>Miercoles</option>
+			 	<option value='4'>Jueves</option>
+			 	<option value='5'>Viernes</option>
+			 	<option value='6'>Sabado</option>
+			</select><br />
 		</div>
 
 		<br /> <br />

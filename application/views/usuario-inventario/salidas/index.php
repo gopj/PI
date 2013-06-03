@@ -16,9 +16,11 @@
 				if($salida->status == "1"): 
 					echo "<tr class='success'>";
 					$bloqueado = "enable='true'";
+					$cotejado = "cotejar";
 				else:
 					echo "<tr class='error'>"; 
 					$bloqueado = "disabled='true'";
+					$cotejado = "cotejado";
 				endif;
 				?>
 						<td>
@@ -30,7 +32,7 @@
 						<td><?= $salida->usuario; ?></td>
 						<td><?= $salida->fecha; ?></td>
 						<input type="hidden" name="idSalida" id="idSalida" value="<?=$salida->idSalida;;?>" />
-						<td><input type="submit" <?=$bloqueado;?> name="enviar" value="cotejar"/></td>
+						<td><input type="submit" <?=$bloqueado;?> class="btn btn-success" name="enviar" value="<?=$cotejado?>"/></td>
 					</tr>
 				<?php 
 			endforeach;
@@ -72,7 +74,7 @@
 				</tr>
 			<?php 
 			//obtenemos el total que se debe entregar por cada producto 
-			$total += ($detalle->cantidadRegreso)*($detalle->precio);
+			$total += ($detalle->cantidadLleva-$detalle->cantidadRegreso)*$detalle->precio;
 		endforeach;
 	else:
 		echo "<p>No hay detalle para esta venta</p>";

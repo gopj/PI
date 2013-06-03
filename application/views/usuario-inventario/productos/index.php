@@ -16,8 +16,12 @@
 		if($productos):
 			foreach ($productos->result() as $producto): 
 				if($producto->status == "1"): 
-					echo "<tr class='success'>";
 					$existencia = 'Si';
+					if($producto->fecha_caducidad > date( 'Y-m-d')):
+						echo "<tr class='success'>";
+					else:
+						echo "<tr class='warning'>";
+					endif;
 				else:
 					echo "<tr class='error'>"; 
 					$existencia = 'No';

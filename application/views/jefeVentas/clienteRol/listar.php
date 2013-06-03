@@ -11,6 +11,7 @@
 	</thead>
 
 	<?php
+	if($clientes){
 		foreach ($clientes ->result() as $Cliente) {
 			echo "
 				<tr>
@@ -24,5 +25,8 @@
 				</tr>
 			";
 		}
+	}else{
+		echo "<p>Actualmente no hay candidatos para este rol</p>";
+	}
 	?>
 </table>

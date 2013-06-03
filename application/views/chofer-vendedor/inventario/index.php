@@ -3,7 +3,7 @@
 	<table class="table table-hover table-bordered">
 		<thead>
 			<tr>
-				<th>#</th>
+				<th>N°</th>
 				<th>Producto</th>
 				<th>Presentacion</th>
 				<th>Vigente</th>
@@ -18,11 +18,15 @@
 		if($productosChofer):
 			foreach ($productosChofer->result() as $producto): 
 				if($producto->status == "1"): 
-					echo "<tr class='success'>";
 					$existencia = 'Si';
+					if($producto->fecha_caducidad > date( 'Y-m-d')):
+						echo "<tr class='success'>";
+					else:
+						echo "<tr class='warning'>";
+					endif;
 				else:
 					echo "<tr class='error'>"; 
-					$existencia = 'No';
+					$existencia = 'No'; 
 				endif;
 				?>
 						<td><?= $producto->idProducto; ?> </td>
@@ -36,7 +40,7 @@
 				<?php 
 			endforeach;
 		else:
-			echo "<p>Error en la aplicacion</p>";
+			echo "<p class='alert'>Actualmente no hay productos en inventario</p>";
 		endif;
 	?>
 		</tbody>

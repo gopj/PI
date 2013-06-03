@@ -35,7 +35,7 @@ class ClienteRol extends My_Controller {
 		array('rutas','roles','clienteRol'));
 		$municipio = $this-> municipio -> getMunicipioRol($id);
 		$dia = $this -> rol ->getRolDia($id);
-		$data['clietes'] = $this -> cliente -> getClientesLibres($municipio, $dia);
+		$data['clientes'] = $this -> cliente -> getClientesLibres($municipio, $dia);
 		$this->load->view('jefeVentas/clienteRol/asignacion',$data);
 	}
 
