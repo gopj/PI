@@ -5,10 +5,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8">
 		<!-- Le styles -->
-		<link href="<?= base_url()?>css/bootstrap.min.css" rel="stylesheet">
-		<link href="<?= base_url()?>css/bootstrap-responsive.min.css" rel="stylesheet">
-		<link href="<?= base_url()?>css/main.css" rel="stylesheet">
+		<?php echo link_tag( 'css/bootstrap.css' ) ?>
+		<?php echo link_tag( 'css/bootstrap.min.css' ) ?>
+		<?php echo link_tag( 'css/prettify.css' ) ?>
 		<?php echo link_tag( 'css/style.css' ) ?>
+		<?php echo link_tag( 'css/dataTables/jquery.dataTables.css' ) ?>
+
+		<script src="<?=base_url('js/jquery-1.9.0.js')?>"> </script>
+		<script src="<?=base_url('js/bootstrap.js')?>"> </script>
+		<script src="<?=base_url('js/jquery.dataTables.js')?>"> </script>
 
 		<!--<link rel="stylesheet" type="text/css" media="screen" 
 		href="<?= base_url()?>css/bootstrap.min.css"/>
@@ -129,25 +134,6 @@
 		</footer>
 		<!--Fin footer-->
 		
-		<script src="<?= base_url()?>js/jquery.js"></script>
-		<script src="<?= base_url()?>js/bootstrap-transition.js"></script>
-		<script src="<?= base_url()?>js/bootstrap-alert.js"></script>
-		<script src="<?= base_url()?>js/bootstrap-modal.js"></script>
-		<script src="<?= base_url()?>js/bootstrap-dropdown.js"></script>
-		<script src="<?= base_url()?>js/bootstrap-scrollspy.js"></script>
-		<script src="<?= base_url()?>js/bootstrap-tab.js"></script>
-		<script src="<?= base_url()?>js/bootstrap-tooltip.js"></script>
-		<script src="<?= base_url()?>js/bootstrap-popover.js"></script>
-		<script src="<?= base_url()?>js/bootstrap-button.js"></script>
-		<script src="<?= base_url()?>js/bootstrap-collapse.js"></script>
-		<script src="<?= base_url()?>js/bootstrap-carousel.js"></script>
-		<script src="<?= base_url()?>js/bootstrap-typeahead.js"></script>
-		<script src="<?= base_url()?>js/bootstrap-affix.js"></script>
-		<script src="<?= base_url()?>js/holder/holder.js"></script>
-		<script src="<?= base_url()?>js/application.js"></script>
-
-		<script src="<?=base_url('js/bootstrap.js')?>"> </script>
-		<script src="<?=base_url('js/jquery-1.9.0.js')?>"> </script>
 	</body>
 
 </html>
