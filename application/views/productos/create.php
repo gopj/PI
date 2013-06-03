@@ -1,7 +1,9 @@
 <div class="span8 offset4">
 
 	<?php echo form_open('admin/productos/create', 'class="form-horizontal"'); ?>
+		
 		<div class="modal" id="myModal">
+			
 			<div class="modal-header">
 				<a class="close" data-dismiss="modal"> x </a>
 				<h3>Nuevo producto</h3>

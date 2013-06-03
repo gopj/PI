@@ -1,24 +1,18 @@
 <script type="text/javascript">
-	$(function() {
-		$('[data-toggle="cCliente"]').click(function(e) {
-			e.preventDefault();
+	$(document).ready(function() {
+		$('#example').dataTable( {
+			"sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>"
+		} );
+	} );
 
-			var href = $(this).attr('href');
-
-			if (href.indexOf('#') == 0) {
-				$(href).modal('open');
-			} else {
-				$.get(href, function(data) {
-					$(data).modal();
-				});
-			}
-		});
-	});
+	$.extend( $.fn.dataTableExt.oStdClasses, {
+		"sWrapper": "dataTables_wrapper form-inline"
+	} );
 </script>
 
 <script type="text/javascript">
 	$(function() {
-		$('[data-toggle="update"]').click(function(e) {
+		$('[data-toggle="cCliente"]').click(function(e) {
 			e.preventDefault();
 
 			var href = $(this).attr('href');
@@ -38,9 +32,9 @@
 <p>
 	<?=anchor( "admin/clientes/create/" ,"Agregar" ,"data-toggle='cCliente' class='btn btn-primary'" )?>
 </p>
-<table class="table table-striped table-bordered" >
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered dataTable" id="example" aria-describedby="example_info">
 	<thead>
-		<tr>
+		<tr role="row">
 			<th>Id</th>
 			<th>Nombre</th>
 			<th>Direcci&oacute;n</th>
@@ -48,7 +42,7 @@
 			<th>Status</th>
 			<th>Asignado</th>
 			<th>Día</th>
-			<th colspan="2">Opciones</th>
+			<th>Opciones</th>
 		</tr>
 	</thead>
 

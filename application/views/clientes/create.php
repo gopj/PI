@@ -26,21 +26,20 @@
 					<?=form_dropdown('idMunicipio', $perfiles, @$perfil['nombre']);?>
 				</div>
 
-<<<<<<< HEAD
-		<label class="control-label" for="dia_visita">Dia visita:</label>
-		<div class="controls">
-			<select name="dia_visita">
-				<option value='1'>Lunes</option>
-			 	<option value='2'>Martes</option>
-			 	<option value='3'>Miercoles</option>
-			 	<option value='4'>Jueves</option>
-			 	<option value='5'>Viernes</option>
-			 	<option value='6'>Sabado</option>
-			</select><br />
-		</div>
-=======
+
+				<label class="control-label" for="dia_visita">Dia visita:</label>
+				<div class="controls">
+					<select name="dia_visita">
+						<option value='1'>Lunes</option>
+					 	<option value='2'>Martes</option>
+					 	<option value='3'>Miercoles</option>
+					 	<option value='4'>Jueves</option>
+					 	<option value='5'>Viernes</option>
+					 	<option value='6'>Sabado</option>
+					</select><br />
+				</div>
+
 			</div>
->>>>>>> d07c32a8f1138cef52e04d9f1f8650b127d07012
 
 			<div class="modal-footer">
 				<input type="submit" name="save" value="Guardar" class="btn btn-success" />

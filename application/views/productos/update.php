@@ -13,6 +13,7 @@
 
 	?>
 		<div class="modal" id="myModal">
+			
 			<div class="modal-header">
 				<a class="close" data-dismiss="modal"> x </a>
 				<h3>Actulizar producto</h3>
