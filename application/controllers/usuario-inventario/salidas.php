@@ -19,6 +19,10 @@ class Salidas extends My_Controller {
 	 * @return [type] [no regresa nada]
 	 */
 	public function index() {
+		if($this->session->userdata['user']['perfil'] == FALSE || $this->session->userdata['user']['perfil'] != '4'){
+			redirect(base_url().'login');
+		}
+
 		//obtenemos segmento de la url, una parte de la url, el id de venta
 		$data['idSalida'] = $this->uri->segment(4);
 

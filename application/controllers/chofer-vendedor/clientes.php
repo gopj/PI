@@ -19,6 +19,11 @@ class Clientes extends My_Controller {
 
 	//el index de ventas del usuario chofer vendedor
 	public function index() {
+
+		if($this->session->userdata['user']['perfil'] == FALSE || $this->session->userdata['user']['perfil'] != '2'){
+			redirect(base_url().'login');
+		}
+
 		//construimos nuestro sidebar
 		$data['sidebar'] = $this -> menu -> construirSidebar(
 			array('Agregar cliente'), //opciones sidebar

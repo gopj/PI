@@ -8,6 +8,10 @@ class Index extends MY_Controller {
 		$this->setLayout('jefeVentas');
 	}
 	public function index(){
+		if($this->session->userdata['user']['perfil'] == FALSE || $this->session->userdata['user']['perfil'] != '3'){
+			redirect(base_url().'login');
+		}
+		
 		$data['sidebar'] = $this -> menu -> construirSidebar(
 			array('Rutas', 'Roles', 'Asignar Clientes a un rol'), 
 			'',

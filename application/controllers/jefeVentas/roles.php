@@ -12,6 +12,9 @@ class Roles extends My_Controller {
 	}
 
 	public function index($pag = null){
+		if($this->session->userdata['user']['perfil'] == FALSE || $this->session->userdata['user']['perfil'] != '3'){
+			redirect(base_url().'login');
+		}
 		
 		$data['roles'] = $this->rol->getRoles();	
 		$data['rutas'] = $this->ruta->getRutas();	

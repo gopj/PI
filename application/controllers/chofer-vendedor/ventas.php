@@ -19,6 +19,10 @@ class Ventas extends My_Controller {
 
 	//el index de ventas del usuario chofer vendedor
 	public function index() {
+		if($this->session->userdata['user']['perfil'] == FALSE || $this->session->userdata['user']['perfil'] != '2'){
+			redirect(base_url().'login');
+		}
+
 		//obtenemos segmento de la url, una parte de la url, el id de venta
 		$data['idVenta'] = $this->uri->segment(4);
 
