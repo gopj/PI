@@ -4,7 +4,7 @@
 	<h2 class="form-signin-heading">Identificaci&oacute;n</h2>
 	<p>
 		<label for="usuario">Usuario: </label>
-		<input name="user" type="text" class="input-block-level span3" placeholder="Nombre de usuario">
+		<input name="usuario" type="text" class="input-block-level span3" placeholder="Nombre de usuario">
 		<label for="clave">Contrase&ntilde;a:</label>
 		<input name="clave" type="password" class="input-block-level span3" placeholder="Clave">
 	</p>
