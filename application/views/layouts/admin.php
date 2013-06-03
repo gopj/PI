@@ -15,7 +15,7 @@
 	<?php echo link_tag( 'css/bootstrap.css' ) ?>
 	<?php echo link_tag( 'css/bootstrap.min.css' ) ?>
 	<?php echo link_tag( 'css/prettify.css' ) ?>
-	
+	<?php echo link_tag( 'css/style.css' ) ?>
 	<?php echo link_tag( 'css/dataTables/jquery.dataTables.css' ) ?>
 
 

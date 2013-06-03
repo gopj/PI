@@ -8,6 +8,7 @@
 	<?php echo link_tag( 'css/bootstrap.css' ) ?>
 	<?php echo link_tag( 'css/bootstrap.min.css' ) ?>
 	<?php echo link_tag( 'css/prettify.css' ) ?>
+	<?php echo link_tag( 'css/style.css' ) ?>
 
 	<script src="<?=base_url('js/jquery-1.9.0.js')?>"> </script>
 	<script src="<?=base_url('js/bootstrap.js')?>"> </script>
