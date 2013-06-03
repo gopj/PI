@@ -1,46 +1,49 @@
-<div id="create">
-	<?php echo form_open('admin/productos/create'); ?>
-		<div class="row-fluid">
-			<div class="span6">
-				<p><h4> <div class="title">Nuevo producto</h4></p> 
-				<input type="hidden" name="" value="">
+<div class="span8 offset4">
 
-				<p><label class="control-label" for="Nombre_producto">Nombre Producto:</label>
+	<?php echo form_open('admin/productos/create', 'class="form-horizontal"'); ?>
+		<div class="modal" id="myModal">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal"> x </a>
+				<h3>Nuevo producto</h3>
+			</div>
+
+			<div class="modal-body">
+				
+				<label class="control-label" for="nombre">Nombre Producto:</label>
 				<div class="controls">
-					<?=form_input('nombre_producto', '', ' id="Nombre_producto" placeholder="Nombre del producto"')?> <br />
-				</div></p>
+					<?=form_input('nombre_producto', '', ' id="nombre" placeholder="Nombre del producto"')?> 
+				</div> <br />
 
-				<p><label class="control-label" for="Presentacion">Presentación:</label>
+				<label class="control-label" for="Presentacion">Presentación:</label>
 				<div class="controls">
-					<?=form_input('presentacion', '', ' id="Presentacion" placeholder="Gramos"')?> <br />
-				</div></p>
+					<?=form_input('presentacion', '', ' id="Presentacion" placeholder="Gramos"')?> 
+				</div> <br />
 
-				<p><label class="control-label" for="precio_fabrica">Precio Fabrica:</label>
+				<label class="control-label" for="precio_fabrica">Precio Fabrica:</label>
 				<div class="controls">
-					<?=form_input('precio_fabrica', '', ' id="Precio_fabrica" placeholder="Precio de Fabrica"')?> <br />
-				</div></p>
+					<?=form_input('precio_fabrica', '', ' id="Precio_fabrica" placeholder="Precio de Fabrica"')?> 
+				</div> <br />
 
-				<p><label class="control-label" for="precio_publico">Precio Publico:</label>
+				<label class="control-label" for="precio_publico">Precio Publico:</label>
 				<div class="controls">
-					<?=form_input('precio_publico', '', ' id="Precio_publico" placeholder="Precio de Publico"')?> <br />
-				</div></p>
+					<?=form_input('precio_publico', '', ' id="Precio_publico" placeholder="Precio de Publico"')?>
+				</div> <br />
 
-				<p><label class="control-label" for="cantidad">Cantidad:</label>
+				<label class="control-label" for="cantidad">Cantidad:</label>
 				<div class="controls">
-					<?=form_input('cantidad', '', ' id="cantidad" placeholder="Cantidad"')?> <br />
-				</div></p>
+					<?=form_input('cantidad', '', ' id="cantidad" placeholder="Cantidad"')?> 
+				</div> <br />
 
-				<p><label for="caducidad">Fecha de caducidad: </label>
+				<label class="control-label" for="caducidad">Fecha de caducidad: </label>
 				<div class="controls">
 					<input name="caducidad" type="date" value="2013-05-01"/>
-				</div></p>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<input type="submit" name="save" value="Guardar" class="btn btn-success" />
+				<?php echo anchor("admin/productos", "Cancelar", 'class="btn"'); ?>
 			</div>
 		</div>
-	
-		<input type="submit" name="save" value="Guardar" class="btn btn-success" />
-		<?php echo anchor("admin/productos", "Cancelar", 'class="btn"'); ?>
-
-
-	</form>
-
+	<?php echo form_close(); ?>
 </div>

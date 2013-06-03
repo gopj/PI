@@ -84,7 +84,7 @@
 					<td>".$producto->cantidad." piezas</td>
 					<td>".$producto->fecha_caducidad."</td>
 					<td>
-						" . anchor( "admin/productos/update/".$producto->idProducto , "Editar" , "class='btn btn-primary'" ) . "
+						" . anchor( "admin/productos/update/".$producto->idProducto , "Editar" , "data-toggle='update' class='btn btn-primary'" ) . "
 						" . anchor( "#dDelete" , "Eliminar" , "class='btn btn-danger' data-toggle='modal'" ) . "
 					</td>
 				</tr>

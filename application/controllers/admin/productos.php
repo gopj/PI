@@ -73,6 +73,8 @@ class Productos extends My_Controller {
 			}
 		}
 
+		$this->setLayout('blank');
+
 		$this->load->view("productos/update",$data);
 	}
 
