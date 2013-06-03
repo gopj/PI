@@ -15,6 +15,12 @@ class ClienteRol extends My_Controller {
 	}
 
 	public function index($pag = null){
+		if ($this->session->userdata['user']['perfil'] != '1'){
+			if ($this->session->userdata['user']['perfil'] == FALSE || $this->session->userdata['user']['perfil'] != '3'){
+				redirect(base_url().'login');
+			}
+		}
+
 		$data['roles'] = $this->rol->getRoles();	
 		$data['rutas'] = $this->ruta->getRutas();	
 		$data['sidebar'] = $this -> menu -> construirSidebar(
@@ -49,8 +55,22 @@ class ClienteRol extends My_Controller {
 		$this->load->view('jefeVentas/clienteRol/listar',$data);
 	}
 
-	public function delete($id = null){
-		redirect('jefeVentas/clienteRol');
+	public function delete($id = null){ 
+		$c = $this -> rolCliente -> getClienteIdFromRol_cliente($id);
+
+		$client = new Cliente_model();
+
+		$client['idCliente'] = $c;
+		$client['asignado'] = 0;
+		
+		if ( $client->save() ){
+			$this->rolCliente['idRol_cliente'] = $id;
+			if ( $this->rolCliente->delete() ){
+				redirect('jefeVentas/clienteRol');
+			}else{
+				redirect('jefeVentas/clienteRol');
+			}
+		}
 	}
 
 	

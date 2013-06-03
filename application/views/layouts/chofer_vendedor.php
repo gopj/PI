@@ -8,6 +8,7 @@
 		<link href="<?= base_url()?>css/bootstrap.min.css" rel="stylesheet">
 		<link href="<?= base_url()?>css/bootstrap-responsive.min.css" rel="stylesheet">
 		<link href="<?= base_url()?>css/main.css" rel="stylesheet">
+		<?php echo link_tag( 'css/style.css' ) ?>
 
 		<!--<link rel="stylesheet" type="text/css" media="screen" 
 		href="<?= base_url()?>css/bootstrap.min.css"/>

@@ -1,4 +1,11 @@
-<?php // $user = $this->session->userdata('user'); ?>
+<?php 
+	/*echo "<pre>";
+	print_r($this->session->userdata('user'));
+	echo "</pre>"; */
+
+	$user = $this->session->userdata['user']['nombre'];
+
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
@@ -8,7 +15,7 @@
 	<?php echo link_tag( 'css/bootstrap.css' ) ?>
 	<?php echo link_tag( 'css/bootstrap.min.css' ) ?>
 	<?php echo link_tag( 'css/prettify.css' ) ?>
-	
+	<?php echo link_tag( 'css/style.css' ) ?>
 	<?php echo link_tag( 'css/dataTables/jquery.dataTables.css' ) ?>
 
 
@@ -51,7 +58,7 @@
 					</li>
 					<li class="divider-vertical"></li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Cerrar Sesi&oacute;n <b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $user ?> <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="<?=base_url();?>login/logout"> Logout </a></li>
 							

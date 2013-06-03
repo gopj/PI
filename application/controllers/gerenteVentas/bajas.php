@@ -11,6 +11,13 @@ class Bajas extends My_Controller {
 
 	//el index de ventas del usuario chofer vendedor
 	public function index($data = null) {
+		if ($this->session->userdata['user']['perfil'] != '1'){
+			if ($this->session->userdata['user']['perfil'] == FALSE || $this->session->userdata['user']['perfil'] != '5'){
+				redirect(base_url().'login');
+			}
+		}
+
+
 		$this->setLayout('gerenteVentas');
 
 		//cargamos la libreria
