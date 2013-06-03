@@ -14,6 +14,10 @@ class Usuarios extends My_Controller {
 
 	public function index($pag = null){
 		
+		if($this->session->userdata['user']['perfil'] == FALSE || $this->session->userdata['user']['perfil'] != '1'){
+			redirect(base_url().'login');
+		}
+		
 		$data['users'] = $this->user->getUsers();	
 
 		$this->load->view('usuarios/index', $data);

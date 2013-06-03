@@ -10,6 +10,10 @@ class Index extends MY_Controller {
 
 	public function index(){
 
+		if($this->session->userdata['user']['perfil'] == FALSE || $this->session->userdata['user']['perfil'] != '1'){
+			redirect(base_url().'login');
+		}
+
 		//echo "<pre>";
 		//print_r( $this->session->userdata);
 		//print($this->session->userdata['user']['perfil']);

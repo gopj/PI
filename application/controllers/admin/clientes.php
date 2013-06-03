@@ -7,10 +7,16 @@ class Clientes extends My_Controller {
 		
 		$this->load->model("cliente_model", "cliente");
 		$this->load->model("municipio_model","municipio");
+		$this->load->library(array('session'));
+        $this->load->helper(array('url'));
 		$this->setLayout('admin');
 	}
 
 	public function index($pag = null){
+
+		if($this->session->userdata['user']['perfil'] == FALSE || $this->session->userdata['user']['perfil'] != '1'){
+			redirect(base_url().'login');
+		}
 		
 		$data['clientes'] = $this->cliente->getClientes();	
 

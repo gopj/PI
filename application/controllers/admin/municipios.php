@@ -10,6 +10,10 @@ class Municipios extends My_Controller {
 	}
 
 	public function index($pag = null){
+
+		if($this->session->userdata['user']['perfil'] == FALSE || $this->session->userdata['user']['perfil'] != '1'){
+			redirect(base_url().'login');
+		}
 		
 		$data['municipios'] = $this->municipio->getAll();	
 
