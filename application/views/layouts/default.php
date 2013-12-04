@@ -6,6 +6,7 @@
 	<title>Botanitas</title>
 
 	<?php echo link_tag( 'css/bootstrap.css' ) ?>
+	<?php echo link_tag( 'css/bootstrap-responsive.css' ) ?>
 	<?php echo link_tag( 'css/bootstrap.min.css' ) ?>
 	<?php echo link_tag( 'css/prettify.css' ) ?>
 	<?php echo link_tag( 'css/style.css' ) ?>
@@ -14,7 +15,7 @@
 	<script src="<?=base_url('js/bootstrap.js')?>"> </script>
 </head>
 <body>
-<div class="navbar navbar-fixed-top navbar-inverse" style="position: static;">
+<div class="navbar navbar-inverse navbar-fixed-top" style="position: static;">
 	<div class="navbar-inner">
 		<div class="container">
 			<a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
@@ -23,7 +24,7 @@
 				<span class="icon-bar"></span>
 			</a>
 
-			<a class="brand" href="<?=base_url()?>">Botanitas</a>
+			<a class="brand" href="<?=base_url()?>">PI7</a>
 			<div class="nav-collapse collapse navbar-inverse-collapse">
 
 				<ul class="nav">
