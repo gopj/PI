@@ -1,8 +1,7 @@
 <div id="container">
 
 	<div class="hero-unit">
-		<h1>PI - Botanas</h1>
-		<p>Index</p>		
+		<h4>Administración de ventas casa por casa</h4>
     </div>
 
 <!--

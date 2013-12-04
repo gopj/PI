@@ -24,18 +24,18 @@
 				<span class="icon-bar"></span>
 			</a>
 
-			<a class="brand" href="<?=base_url()?>">PI7</a>
+			<a class="brand" href="<?=base_url()?>">Venta casa por casa</a>
 			<div class="nav-collapse collapse navbar-inverse-collapse">
 
 				<ul class="nav">
 					<li><a href="#">Conocenos</a></li>
-					<li><a href="#">Link</a></li>
 				</ul>
 
 				<ul class="nav pull-right">
 					<li class="divider-vertical"></li>
 					<li><a href="<?=base_url()?>login">Iniciar Sesion</a></li>
 				</ul>
+
 			</div><!-- /.nav-collapse -->
 		</div>
 	</div><!-- /navbar-inner -->
