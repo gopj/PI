@@ -34,10 +34,6 @@ class Login extends My_Controller {
 			}
 		}
 
-		echo "<pre>";
-		print_r($this->session->userdata);
-		echo "</pre>";
-
 		$this->load->view('login/index');
 	}
 
