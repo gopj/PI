@@ -26,6 +26,18 @@ class Cliente_model extends My_Model{
 	
 	}
 
+	public function getCliente($idCliente){
+		$query = $this->db->query("SELECT * from clientes Where idCliente = {$idCliente};");
+
+		if($query -> num_rows() > 0) {
+			return $query;
+		}
+		//si no hay regresamos un false
+		else{
+			return false;	
+		}
+	}
+
 	public function getByIdToSelect($id){
 		$clientesResult = $this->getAllBy("idMunicipio", $id);
 		$clientes = array();

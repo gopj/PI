@@ -8,11 +8,35 @@ class Producto_model extends My_Model{
         parent::__construct();
     }
 
-	public function getAllToSelect(){
-		
-	}
+    public function precioDe($idProd){
+    	$sQuery = "";
 
-	public function createProduct(){
+    	for ($i=0; $i < count($idProd) ; $i++) { 
+
+	    	if (($i+1) == count($idProd)) {
+	    		$sQuery .= " idProducto = {$idProd[$i]} ;";
+	    	} else {
+	    		$sQuery .= " idProducto = {$idProd[$i]} OR";
+	    	}
+
+    	}
+
+		$query = $this->db->query("
+			SELECT sum(precio) as total
+			FROM productos
+			WHERE 
+			{$sQuery}
+		");
+
 		
-	}
+		if($query -> num_rows() > 0) {
+			return $query;
+		}
+		//si no hay regresamos un false
+		else{
+			return false;	
+		}
+    }
+
+
 }

@@ -55,7 +55,7 @@
 							<hr>
 							<li class="divider"></li>
 							
-							<li><a href="<?=base_url();?>admin/venta"> Venta </a></li>
+							<li><a href="<?=base_url();?>admin/ventas"> Ventas </a></li>
 							<li><a href="<?=base_url();?>admin/rpCliente"> Reporte cliente </a></li>
 							<hr>
 						</ul>
