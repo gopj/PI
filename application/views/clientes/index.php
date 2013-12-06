@@ -10,27 +10,10 @@
 	} );
 </script>
 
-<script type="text/javascript">
-	$(function() {
-		$('[data-toggle="cCliente"]').click(function(e) {
-			e.preventDefault();
-
-			var href = $(this).attr('href');
-
-			if (href.indexOf('#') == 0) {
-				$(href).modal('open');
-			} else {
-				$.get(href, function(data) {
-					$(data).modal();
-				});
-			}
-		});
-	});
-</script>
 
 <h2>Clientes</h2>
 <p>
-	<?=anchor( "admin/clientes/create/" ,"Agregar" ,"data-toggle='cCliente' class='btn btn-primary'" )?>
+	<?=anchor( "admin/clientes/create/" ,"Agregar" ,"class='btn btn-primary'" )?>
 </p>
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered dataTable" id="example" aria-describedby="example_info">
 	<thead>
@@ -38,44 +21,29 @@
 			<th>Id</th>
 			<th>Nombre</th>
 			<th>Direcci&oacute;n</th>
-			<th>Municipio</th>
-			<th>Status</th>
-			<th>Asignado</th>
-			<th>Día</th>
+			<th>Tel&eacute;fono</th>
 			<th>Opciones</th>
 		</tr>
 	</thead>
 
 	<?php
-		foreach ($clientes ->result() as $cliente) {
-			if ($cliente->dia == '1'){$dia = "Lunes";}
-			elseif ($cliente->dia == '2'){$dia = "Martes";}
-			elseif ($cliente->dia == '3'){$dia = "Miercoles";}
-			elseif ($cliente->dia == '4'){$dia = "Jueves";}
-			elseif ($cliente->dia == '5'){$dia = "Viernes";}
-			else {$dia = "Sabado";}
-			$val = $cliente->status;
-			if ($val == '1'){$val = "Activo";}
-			else {$val = "Inactivo";}
+		if ($clientes == true){
+			foreach ($clientes->result() as $cliente) {
+				echo "
+					<tr>
+						<td>".$cliente->idCliente."</td>
+						<td>".$cliente->nombre."</td>
+						<td>".$cliente->direccion."</td>
+						<td>".$cliente->telefono."</td>									
+						<td>
+							" . anchor( "admin/clientes/update/".$cliente->idCliente , "Editar" , "data-toggle='update' class='btn btn-primary'" ) . "
+							" . anchor( "#dDelete" , "Eliminar" , "class='btn btn-danger' data-toggle='modal'" ) . "
+						</td>
+					</tr>
+				";
+			}
+		} else {
 
-			$a = $cliente->asignado;
-			if ($a == '1'){$a = "Si";}
-			else {$a = "No";}
-			echo "
-				<tr>
-					<td>".$cliente->idCliente."</td>
-					<td>".$cliente->nombre."</td>
-					<td>".$cliente->direccion."</td>
-					<td>".$cliente->idMunicipio."</td>
-					<td>".$val."</td>					
-					<td>".$a."</td>
-					<th>".$dia."</th>					
-					<td>
-						" . anchor( "admin/clientes/update/".$cliente->idCliente , "Editar" , "data-toggle='update' class='btn btn-primary'" ) . "
-						" . anchor( "#dDelete" , "Eliminar" , "class='btn btn-danger' data-toggle='modal'" ) . "
-					</td>
-				</tr>
-			";
 		}
 	?>
 </table>
@@ -90,6 +58,6 @@
 	</div>
 	<div class="modal-footer">
 		<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-		<?php echo anchor( "admin/productos/delete/".$cliente->idCliente, "Eliminar" , "class='btn btn-danger'" ); ?>
+		<?php echo anchor( "admin/clientes/delete/".$cliente->idCliente, "Eliminar" , "class='btn btn-danger'" ); ?>
 	</div>
 </div>

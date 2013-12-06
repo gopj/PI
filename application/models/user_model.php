@@ -15,11 +15,12 @@ class User_model extends My_Model {
 	public function getUsers(){
 
 		$query = $this->db->query('
-			select u.idUsuario as idUsuario, t.nombre as idTipo_usuario, u.nombre_usuario as nombre_usuario, u.status as status
+			select u.idUsuario as idUsuario, t.nombre as idTipo_usuario, u.nombre_usuario as nombre_usuario
 			from usuarios as u, tipo_usuarios as t
 			where 
 			u.idTipo_usuario = t.idTipo_usuario;
 		');
+		
 		if($query -> num_rows() > 0) {
 			return $query;
 		}
@@ -27,7 +28,6 @@ class User_model extends My_Model {
 		else{
 			return false;	
 		}
-		return $query;
 	}
 
 	public function getChoferes(){

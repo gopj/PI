@@ -27,19 +27,14 @@ class Productos extends My_Controller {
 			$product = new Producto_model();
 
 			$product['nombre_producto'] = $this->input->post("nombre_producto");
-			$product['presentacion'] = ($this->input->post("presentacion"));
-			$product['precio_fabrica'] = $this->input->post("precio_fabrica");
-			$product['precio_publico'] = $this->input->post("precio_publico");
-			$product['status'] = 1;
-			$product['cantidad'] = $this->input->post("cantidad");
-			$product['fecha_caducidad'] = $this->input->post("caducidad");
+			$product['descripcion'] = ($this->input->post("descripcion"));
+			$product['precio'] = $this->input->post("precio");
+			$product['estado'] = 1;
 
 			if ( $product->save() ){
 				redirect('admin/productos');
 			}
 		}
-
-		$this->setLayout('blank');
 
 		$this->load->view("productos/create");
 	}	
@@ -60,20 +55,14 @@ class Productos extends My_Controller {
 
 			$product['idProducto'] = $id;
 			$product['nombre_producto'] = $this->input->post("nombre_producto");
-			$product['presentacion'] = $this->input->post("presentacion");
-			$product['precio_fabrica'] = $this->input->post("precio_fabrica");
-			$product['precio_publico'] = $this->input->post("precio_publico");
-			$product['status'] = $this->input->post("status");
-			$product['cantidad'] = $this->input->post("cantidad");
-			$product['fecha_caducidad'] = $this->input->post("caducidad");
-
+			$product['descripcion'] = ($this->input->post("descripcion"));
+			$product['precio'] = $this->input->post("precio");
+			$product['estado'] = $this->input->post("estado");
 
 			if ( $product->save() ){
 				redirect('admin/productos');
 			}
 		}
-
-		$this->setLayout('blank');
 
 		$this->load->view("productos/update",$data);
 	}
@@ -82,9 +71,9 @@ class Productos extends My_Controller {
 		$product = new Producto_model();
 
 		$product['idProducto'] = $id;
-		$product['status'] = 0;
+		$product['estado'] = 0;
 
-		if ( $product->save() ){
+		if ( $product->delete() ){
 			redirect('admin/productos');
 		}
 	}	

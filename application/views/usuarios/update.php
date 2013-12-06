@@ -38,5 +38,7 @@
 		<br /> <br />
 
 		<input type="submit" name="save" value="Guardar" class="btn btn-success" />
+		<?php echo anchor("admin/usuarios", "Cancelar", 'class="btn"'); ?>
+
 	<?php echo form_close(); ?>
 </div>

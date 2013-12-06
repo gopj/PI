@@ -10,42 +10,6 @@
 	} );
 </script>
 
-<script type="text/javascript">
-	$(function() {
-		$('[data-toggle="create"]').click(function(e) {
-			e.preventDefault();
-
-			var href = $(this).attr('href');
-
-			if (href.indexOf('#') == 0) {
-				$(href).modal('open');
-			} else {
-				$.get(href, function(data) {
-					$(data).modal();
-				});
-			}
-		});
-	});
-</script>
-
-<script type="text/javascript">
-	$(function() {
-		$('[data-toggle="update"]').click(function(e) {
-			e.preventDefault();
-
-			var href = $(this).attr('href');
-
-			if (href.indexOf('#') == 0) {
-				$(href).modal('open');
-			} else {
-				$.get(href, function(data) {
-					$(data).modal();
-				});
-			}
-		});
-	});
-</script>
-
 
 <h2>Productos</h2>
 <p>
@@ -58,31 +22,25 @@
 		<tr role="row">
 			<th width="30">Id</th>
 			<th>Nombre</th>
-			<th width="80">Presentaci&oacute;n</th>
-			<th width="50">Precio Fabrica</th>
-			<th width="50">Precio Venta</th>
-			<th width="50">Estado del producto</th>
-			<th width="80">Cantidad</th>
-			<th width="80">Fecha de caducidad</th>
+			<th>Descripcion</th>
+			<th>Precio</th>
+			<th>Estado</th>
 			<th width="140" >Opciones</th>
 		</tr>
 	</thead>
 
 	<?php
 		foreach ($productos as $key => $producto) {
-			$val = $producto->status;
+			$val = $producto->estado;
 			if ($val == '1'){$val = "Activo";}
 			else {$val = "Inactivo";}
 			echo "
 				<tr>
 					<td>".$producto->idProducto."</td>
 					<td>".$producto->nombre_producto."</td>
-					<td>".$producto->presentacion." gms </td>
-					<td> $ ".$producto->precio_fabrica."</td>
-					<td> $ ".$producto->precio_publico."</td>
+					<td>".$producto->descripcion."</td>
+					<td> $ ".$producto->precio."</td>
 					<td>".$val."</td>
-					<td>".$producto->cantidad." piezas</td>
-					<td>".$producto->fecha_caducidad."</td>
 					<td>
 						" . anchor( "admin/productos/update/".$producto->idProducto , "Editar" , "data-toggle='update' class='btn btn-primary'" ) . "
 						" . anchor( "#dDelete" , "Eliminar" , "class='btn btn-danger' data-toggle='modal'" ) . "

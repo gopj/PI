@@ -6,7 +6,6 @@ class Clientes extends My_Controller {
 		parent::__construct(true);
 		
 		$this->load->model("cliente_model", "cliente");
-		$this->load->model("municipio_model","municipio");
 		$this->load->library(array('session'));
         $this->load->helper(array('url'));
 		$this->setLayout('admin');
@@ -20,6 +19,7 @@ class Clientes extends My_Controller {
 		
 		$data['clientes'] = $this->cliente->getClientes();	
 
+
 		$this->load->view('clientes/index', $data);
 	}
 
@@ -31,22 +31,15 @@ class Clientes extends My_Controller {
 
 			$client['nombre'] = $this->input->post("nombre");
 			$client['direccion'] = $this->input->post("direccion");
-			$client['idMunicipio'] = $this->input->post("idMunicipio");
-			$client['asignado'] = 0;
-			$client['dia_visita'] = $this->input->post('dia_visita');
+			$client['telefono'] = $this->input->post("telefono");
 
 			if ( $client->save() ){
 				redirect('admin/clientes');
 			}
 		}
 
-		$municipio = new Municipio_model();
 
-		$data['perfil'] = $this->municipio->getByIdAsArray($id);
-		$data['perfiles'] = $this->municipio->getAllToSelect();
-
-
-		$this->load->view("clientes/create", $data);
+		$this->load->view("clientes/create");
 	}	
 
 	public function update($id = null){
@@ -63,22 +56,12 @@ class Clientes extends My_Controller {
 			$client['idCliente'] = $id;
 			$client['nombre'] = $this->input->post("nombre");
 			$client['direccion'] = $this->input->post("direccion");
-			$client['idMunicipio'] = $this->input->post("idMunicipio");
-			$client['status'] = $this->input->post("estado");
-			$client['asignado'] = $this->input->post("asignado");
-			$client['dia_visita'] = $this->input->post('dia_visita');
+			$client['telefono'] = $this->input->post("telefono");
 			
-
 			if ( $client->save() ){
 				redirect('admin/clientes');
 			}
 		}
-
-		$municipio = new Municipio_model();
-
-		$data['perfil'] = $this->municipio->getByIdAsArray($id);
-		$data['perfiles'] = $this->municipio->getAllToSelect();
-
 
 		$this->load->view("clientes/update", $data);
 	}
@@ -87,9 +70,8 @@ class Clientes extends My_Controller {
 		$cl = new Cliente_model();
 
 		$cl['idCliente'] = $id;
-		$cl['status'] = 0;
 
-		if ( $cl->save() ){
+		if ( $cl->delete() ){
 			redirect('admin/clientes');
 		}
 	}		
