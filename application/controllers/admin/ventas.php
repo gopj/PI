@@ -77,13 +77,37 @@ class Ventas extends My_Controller {
 			redirect('admin/ventas');
 		}
 
+	}
+
+	public function reporte($idCliente = null){
+
+		$data['clientes'] = $this->cliente->getClientes();	
+
+		$data['ventas'] = $this->venta->getVentaById($idCliente);
+		$data['idCliente'] = $idCliente;
+
+		$this->load->view('ventas/reporte', $data);
+	}
+
+	public function detalle($idVenta = null, $idCliente = null){
+
+		$data['clientes'] = $this->cliente->getClientes();	
 		
+		$data['detalles'] = $this->pago->getPagoById($idVenta);
+		$data['idCliente'] = $idCliente;
 
-		
+		$this->load->view('ventas/detalle', $data);
+	}
 
+	public function pagado($idPago = null){
 
-		//$this->load->view('ventas/create', $data);
+		$pago = new Pago_model();
 
+		$pago['idPago'] = $idPago;
+
+		if ( $pago->delete() ){
+			redirect('admin/ventas');
+		}
 	}
 
 }

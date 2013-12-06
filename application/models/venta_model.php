@@ -28,6 +28,23 @@ class Venta_model extends My_Model {
 			return false;	
 		}
     }
+
+    public function getVentaById($idCliente){
+    	
+		$query = $this->db->query("
+			SELECT *
+			FROM ventas
+			WHERE idCliente = {$idCliente};
+		");
+
+		if($query -> num_rows() > 0) {
+			return $query;
+		}
+		//si no hay regresamos un false
+		else{
+			return false;	
+		}
+    }
 	
 }
 

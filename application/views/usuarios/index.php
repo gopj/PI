@@ -14,7 +14,7 @@
 	</thead>
 
 	<?php
-		foreach ($users ->result() as $user) {
+		foreach ($users->result() as $user) {
 			$val = $user->status;
 			if ($val == '1'){$val = "Activo";}
 			else {$val = "Inactivo";}
