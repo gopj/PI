@@ -10,7 +10,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html"; charset="utf-8" />
-	<title>Botanitas</title>
+	<title>Casa x Casa</title>
 
 	<?php echo link_tag( 'css/bootstrap.css' ) ?>
 	<?php echo link_tag( 'css/bootstrap.min.css' ) ?>

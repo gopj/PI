@@ -27,7 +27,7 @@ class Cliente_model extends My_Model{
 	}
 
 	public function getCliente($idCliente){
-		$query = $this->db->query("SELECT * from clientes Where idCliente = {$idCliente};");
+		$query = $this->db->query("SELECT * from clientes Where idCliente = {$idCliente} limit 1;");
 
 		if($query -> num_rows() > 0) {
 			return $query;

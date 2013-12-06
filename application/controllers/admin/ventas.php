@@ -81,7 +81,7 @@ class Ventas extends My_Controller {
 
 	public function reporte($idCliente = null){
 
-		$data['clientes'] = $this->cliente->getClientes();	
+		$data['clientes'] = $this->cliente->getCliente($idCliente);	
 
 		$data['ventas'] = $this->venta->getVentaById($idCliente);
 		$data['idCliente'] = $idCliente;
@@ -91,7 +91,7 @@ class Ventas extends My_Controller {
 
 	public function detalle($idVenta = null, $idCliente = null){
 
-		$data['clientes'] = $this->cliente->getClientes();	
+		$data['clientes'] = $this->cliente->getCliente($idCliente);	
 		
 		$data['detalles'] = $this->pago->getPagoById($idVenta);
 		$data['idCliente'] = $idCliente;
